@@ -94,7 +94,8 @@ namespace ScanBackend.Controllers
                 return NotFound();
             }
 
-            _context.Manwhas.Remove(manwha);
+            manwha.Eliminado = true;
+            _context.Manwhas.Update(manwha);
             await _context.SaveChangesAsync();
 
             return NoContent();
