@@ -23,21 +23,28 @@
 
         <ActivityIndicator IsRunning="{Binding }"/>
 
-            <ListView 
-                      ItemsSource="{Binding Manwhas}"
-                      SelectionMode="Single"
-                      IsPullToRefreshEnabled="True"
-                      RefreshCommand="{Binding GetManwhasCommand}"
-                      IsRefreshing="{Binding IsRefreshing}">
-
-                <ListView.ItemTemplate>
+            <CollectionView ItemsSource="{Binding Manwhas}" Margin="10">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Nombre}"
-                                      Detail="{Binding Precio}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                        <HorizontalStackLayout Spacing="20" Padding="10">
+                            <!-- Imagen y nombre verticalmente -->
+                            <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center">
+                                <!-- Imagen más grande -->
+                                <Image Source="{Binding ImagenUrl}" 
+                               HeightRequest="150" 
+                               WidthRequest="150"
+                               Aspect="AspectFill" />
 
-            </ListView>
+                                <!-- Nombre debajo de la imagen -->
+                                <Label Text="{Binding Nombre}" 
+                               FontSize="16" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
         </VerticalStackLayout>
     </ScrollView>

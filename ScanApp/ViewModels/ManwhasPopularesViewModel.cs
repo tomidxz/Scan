@@ -86,7 +86,7 @@ namespace ScanApp.ViewModels
         {
             FilterManwhas = string.Empty;
             ActivityStart = true;
-            ManwhaListToFilter = await manwhaService.GetAllInOfferAsync();
+            ManwhaListToFilter = await manwhaService.GetAllAsync();
             Manwhas = new ObservableCollection<Manwha>(ManwhaListToFilter);
             ActivityStart = false;
         }
