@@ -11,9 +11,9 @@ namespace ScanServices.Services
 {
     public class ManwhaService : GenericService<Manwha>, IManwhaService
     {
-        public async Task<List<Manwha>?> GetAllAsync()
+        public async Task<List<Manwha>?> GetAllPopularAsync()
         {
-            var response = await client.GetAsync($"{_endpoint}/getInOffer");
+            var response = await client.GetAsync($"{_endpoint}/getPopular");
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {

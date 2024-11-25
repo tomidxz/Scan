@@ -74,6 +74,24 @@ public partial class ScanContext : DbContext
                 Capitulos = 163,
                 Sinopsis = "Kim SooHyun es un estudiante de secundaria normal que no es bueno para estudiar, pelear o ser atractivo. De repente, se enfrenta a una ventana de menú justo frente a sus ojos para acto seguido recibir los poderes de un [sistema] de juego de la nada, ¿cómo enfrentará nuestro héroe los desafíos que tiene por delante?",
                 ImagenUrl = "https://i.pinimg.com/564x/18/7c/41/187c410a2f4d705ed87bc881843a35cf.jpg"
+            },
+            new Manwha()
+            {
+                Id = 4,
+                Nombre = "Reality Quest",
+                Capitulos = 141,
+                Sinopsis = "Debido a la amenaza del matón de la escuela de conseguirle objetos raros en un juego de movil, Ha Do-wan, el desafortunado jugador de videojuegos, murió después de jugar dia y noche durante una semana. En el momento en que murió, fue revivido en su clase, una semana antes de morir… Todo seguia igual que aquel día. ¡Lo único que ha cambiado es la que flota delante de él! ¿Qué? ¡¿Utilizara las habilidades de los juegos que ha jugado hasta ahora para vencer al tipo que le hacia bulling?!",
+                ImagenUrl = "https://static.wikia.nocookie.net/vsbattles/images/b/b4/Dowan-reality-quest.jpg",
+                Popular = true
+            },
+            new Manwha()
+            {
+                Id = 5,
+                Nombre = "Killer Pietro",
+                Capitulos = 68,
+                Sinopsis = "Luego de consagrar su vida a la organización criminal El Club de la Gloria, Pietro abandona su carrera de sicario legendario para pasar sus últimos días a cargo de una tienda de libros de segunda. Motivados por la amenaza que supone, la organización aprovecha su edad para eliminarlo. Pero al borde de la muerte, un golpe de suerte le permite regresar a sus años mozos y recuperar la fuerza que perdió con el tiempo. Ahora que está en óptimas condiciones, Pietro se vengará de la organización que lo traicionó.",
+                ImagenUrl = "https://i.pinimg.com/originals/d9/3b/1c/d93b1c5bd932f0d22fdea2a7960053b7.jpg",
+                Popular = true
             }
             );
         //carga de datos semilla de Origenes

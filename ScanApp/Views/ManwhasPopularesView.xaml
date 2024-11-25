@@ -9,26 +9,35 @@
     </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label 
-            Text="LISTA DE PRODUCTOS EN OFERTA"
+            Text="LISTA DE Manwhas Populares"
             VerticalOptions="Center" 
             FontSize="Header"
             HorizontalOptions="Center" />
-        <Entry Placeholder="Buscar productos..."
-               Text="{Binding FilterProducts}"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
         <ActivityIndicator IsRunning="{Binding ActivityStart}"/>
         <ScrollView HeightRequest="300" HorizontalOptions="Center">
             <ListView 
-                      ItemsSource="{Binding Products}"
+                      ItemsSource="{Binding Manwhas}"
                       SelectionMode="Single"
                       IsPullToRefreshEnabled="True"
-                      RefreshCommand="{Binding GetProductsCommand}">
+                      RefreshCommand="{Binding GetManwhasCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Nombre}"
-                                  Detail="{Binding Precio}"
-                                 />
+                        <ViewCell>
+                            <HorizontalStackLayout Padding="10">
+                                <!-- Imagen -->
+                                <Image Source="{Binding ImagenUrl}" 
+                                   HeightRequest="50" 
+                                   WidthRequest="50"
+                                   Aspect="AspectFill" 
+                                   HorizontalOptions="Start" />
+
+                                <!-- Nombre -->
+                                <Label Text="{Binding Nombre}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   FontSize="Medium" />
+                            </HorizontalStackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

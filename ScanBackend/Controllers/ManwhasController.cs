@@ -42,6 +42,13 @@ namespace ScanBackend.Controllers
             return manwha;
         }
 
+        //creamos un metodo de los manwhas populares
+        [HttpGet("getPopular")]
+        public async Task<ActionResult<IEnumerable<Manwha>>> GetManwhasPopulares()
+        {
+            return await _context.Manwhas.Where(p => p.Popular).ToListAsync();
+        }
+
         // PUT: api/Manwhas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
