@@ -86,7 +86,7 @@ namespace ScanApp.ViewModels
         {
             var navigationParameters = new ShellNavigationQueryParameters
             {
-                { "Solicitud", SelectedSolicitud }
+                { "SolicitudAEditar", SelectedSolicitud }
             };
             await Shell.Current.GoToAsync("AddEditSolicitud", navigationParameters);
         }
@@ -95,7 +95,7 @@ namespace ScanApp.ViewModels
         {
             var navigationParameters = new ShellNavigationQueryParameters
             {
-                { "Solicitud", null }
+                { "SolicitudAEditar", null }
             };
             await Shell.Current.GoToAsync("AddEditSolicitud", navigationParameters);
         }
