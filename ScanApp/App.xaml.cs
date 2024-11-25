@@ -1,4 +1,6 @@
-﻿namespace ScanApp
+﻿using ScanApp.Views;
+
+namespace ScanApp
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new ManwhasView();
         }
     }
 }

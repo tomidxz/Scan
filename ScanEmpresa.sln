@@ -10,9 +10,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScanBackend", "ScanBackend\
 		{A3E9BA54-5DE6-4E4C-9D03-06CEB8C82F1B} = {A3E9BA54-5DE6-4E4C-9D03-06CEB8C82F1B}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScanApp", "ScanApp\ScanApp.csproj", "{A3844F99-5053-40FC-802C-C855E4AA139D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScanApp", "ScanApp\ScanApp.csproj", "{A3844F99-5053-40FC-802C-C855E4AA139D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A3E9BA54-5DE6-4E4C-9D03-06CEB8C82F1B} = {A3E9BA54-5DE6-4E4C-9D03-06CEB8C82F1B}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScanDesktop", "ScanDesktop\ScanDesktop.csproj", "{357CDFB9-0E6B-4D98-A7E3-76DA0EA57970}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScanDesktop", "ScanDesktop\ScanDesktop.csproj", "{357CDFB9-0E6B-4D98-A7E3-76DA0EA57970}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

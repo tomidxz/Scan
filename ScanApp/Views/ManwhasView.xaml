@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScanApp.Views.ManwhasView"
+             xmlns:viewModels="clr-namespace:ScanApp.ViewModels"
+             Title="ManwhasView">
+    <ContentPage.BindingContext>
+        <viewModels:ManwhasViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView HeightRequest="300" HorizontalOptions="Center">
+        <VerticalStackLayout>
+        <Label 
+            Text="Lista de Manwhas"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Header"/>
+        <Entry Placeholder="Buscar Manwha"
+               Text="{Binding FilterManwhas}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,10,0,10"/>
+
+        <ActivityIndicator IsRunning="{Binding }"/>
+
+            <ListView 
+                      ItemsSource="{Binding Manwhas}"
+                      SelectionMode="Single"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding GetManwhasCommand}"
+                      IsRefreshing="{Binding IsRefreshing}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nombre}"
+                                      Detail="{Binding Precio}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

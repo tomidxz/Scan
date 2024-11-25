@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ScanServices.Interfaces
 {
-    public interface IManwhaService : IGenericService<Manwha>
+    public interface ISolicitudService : IGenericService<Solicitud>
     {
-        public Task<List<Manwha>?> GetAllAsync();
+        public Task<List<Solicitud>?> GetAllInOfferAsync();
     }
 }

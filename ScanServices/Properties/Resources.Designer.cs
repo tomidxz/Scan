@@ -79,7 +79,7 @@ namespace ScanServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a https://localhost:7100/.
+        ///   Busca una cadena traducida similar a https://localhost:7100/api/.
         /// </summary>
         internal static string UrlApiLocal {
             get {

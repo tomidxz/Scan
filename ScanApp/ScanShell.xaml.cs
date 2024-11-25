@@ -1,8 +1,8 @@
 ﻿namespace ScanApp
 {
-    public partial class AppShell : Shell
+    public partial class ScanShell : Shell
     {
-        public AppShell()
+        public ScanShell()
         {
             InitializeComponent();
         }

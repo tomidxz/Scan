@@ -124,6 +124,6 @@
     <value>a</value>
   </data>
   <data name="UrlApiLocal" xml:space="preserve">
-    <value>https://localhost:7100/</value>
+    <value>https://localhost:7100/api/</value>
   </data>
 </root>

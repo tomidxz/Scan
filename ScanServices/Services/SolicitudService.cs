@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ScanServices.Services
 {
-    public class ManwhaService : GenericService<Manwha>, IManwhaService
+    public class SolicitudService : GenericService<Solicitud>, ISolicitudService
     {
-        public async Task<List<Manwha>?> GetAllAsync()
+        public async Task<List<Solicitud>?> GetAllInOfferAsync()
         {
             var response = await client.GetAsync($"{_endpoint}/getInOffer");
             var content = await response.Content.ReadAsStringAsync();
@@ -19,7 +19,7 @@ namespace ScanServices.Services
             {
                 throw new ApplicationException(content?.ToString());
             }
-            return JsonSerializer.Deserialize<List<Manwha>>(content, options);
+            return JsonSerializer.Deserialize<List<Solicitud>>(content, options);
         }
     }
 }
