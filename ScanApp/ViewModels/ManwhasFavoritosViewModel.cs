@@ -10,21 +10,9 @@ using System.Threading.Tasks;
 
 namespace ScanApp.ViewModels
 {
-    public class ManwhasPopularesViewModel : ObjectNotification
+    public class ManwhasFavoritosViewModel : ObjectNotification
     {
         private ManwhaService manwhaService = new ManwhaService();
-        private string filterManwhas;
-
-        public string FilterManwhas
-        {
-            get { return filterManwhas; }
-            set
-            {
-                filterManwhas = value;
-                OnPropertyChanged();
-                FiltrarManwhas();
-            }
-        }
 
         private ObservableCollection<Manwha> manwhas;
 
@@ -67,27 +55,18 @@ namespace ScanApp.ViewModels
 
 
         public Command GetManwhasCommand { get; }
-        public Command FilterManwhasCommand { get; }
 
-        public ManwhasPopularesViewModel()
+        public ManwhasFavoritosViewModel()
         {
             GetManwhasCommand = new Command(async () => await GetManwhas());
-            FilterManwhasCommand = new Command(async () => await FiltrarManwhas());
             GetManwhas();
-        }
-
-        public async Task FiltrarManwhas()
-        {
-            var manwhasLeaked = ManwhaListToFilter.Where(p => p.Nombre.ToLower().Contains(filterManwhas.ToLower()));
-            Manwhas = new ObservableCollection<Manwha>(manwhasLeaked);
         }
 
         public async Task GetManwhas()
         {
             IsRefreshing = true;
-            FilterManwhas = string.Empty;
             ActivityStart = true;
-            ManwhaListToFilter = await manwhaService.GetAllPopularAsync();
+            ManwhaListToFilter = await manwhaService.GetAllFavoritosAsync();
             Manwhas = new ObservableCollection<Manwha>(ManwhaListToFilter);
             ActivityStart = false;
             IsRefreshing = false;

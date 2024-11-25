@@ -11,5 +11,7 @@ namespace ScanServices.Interfaces
     public interface IManwhaService : IGenericService<Manwha>
     {
         public Task<List<Manwha>?> GetAllPopularAsync();
+
+        public Task<List<Manwha>?> GetAllFavoritosAsync();
     }
 }

@@ -14,42 +14,39 @@
             FontSize="Header"
             HorizontalOptions="Center" />
         <ActivityIndicator IsRunning="{Binding ActivityStart}"/>
-        <ScrollView HeightRequest="500" HorizontalOptions="Center">
-            <ListView 
-              ItemsSource="{Binding Manwhas}"
-              SelectionMode="Single"
-              IsPullToRefreshEnabled="True"
-              RefreshCommand="{Binding GetManwhasCommand}">
-                <ListView.ItemTemplate>
+        <ScrollView HorizontalOptions="Center">
+            <CollectionView 
+                    ItemsSource="{Binding Manwhas}" 
+                    SelectionMode="Single"
+                    HorizontalScrollBarVisibility="Always">
+                <CollectionView.ItemsLayout>
+                    <!-- Configuración para desplazamiento horizontal -->
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <HorizontalStackLayout Padding="10" Spacing="15" HorizontalOptions="Start">
+                        <Frame Padding="10" HasShadow="False" BorderColor="LightGray" CornerRadius="10">
+                            <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                                 <!-- Imagen -->
                                 <Image Source="{Binding ImagenUrl}" 
-                               HeightRequest="50" 
-                               WidthRequest="50"
-                               Aspect="AspectFill" 
-                               HorizontalOptions="Start" />
+                       HeightRequest="350" 
+                       WidthRequest="200"
+                       Aspect="AspectFill" />
 
-                                <!-- Información debajo de la imagen (Nombre y Capitulos) -->
-                                <VerticalStackLayout HorizontalOptions="StartAndExpand" Spacing="5">
-                                    <!-- Nombre -->
-                                    <Label Text="{Binding Nombre}"
-                                   VerticalOptions="Start"
-                                   HorizontalOptions="StartAndExpand"
-                                   FontSize="Medium" />
+                                <!-- Nombre -->
+                                <Label Text="{Binding Nombre}"
+                       FontSize="Medium"
+                       HorizontalOptions="Center" />
 
-                                    <!-- Capitulos -->
-                                    <Label Text="{Binding Capitulos, StringFormat='{0:0}'}"
-                                   VerticalOptions="Start"
-                                   HorizontalOptions="StartAndExpand"
-                                   FontSize="Small" />
-                                </VerticalStackLayout>
-                            </HorizontalStackLayout>
-                        </ViewCell>
+                                <!-- Capitulos -->
+                                <Label Text="{Binding Capitulos, StringFormat='Capítulos: {0:0}'}"
+                       FontSize="Small"
+                       HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Frame>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </ScrollView>
     </VerticalStackLayout>
 </ContentPage>

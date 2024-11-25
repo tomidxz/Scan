@@ -21,6 +21,7 @@ public partial class Manwha
     public string ImagenUrl { get; set; } = string.Empty;
 
     public bool Popular { get; set; } = false;
+    public bool Favoritos { get; set; } = false;
     public override string ToString()
     {
         return Nombre;

@@ -8,7 +8,7 @@
         <viewModels:ManwhasViewModel/>
     </ContentPage.BindingContext>
 
-    <ScrollView HeightRequest="300" HorizontalOptions="Center">
+    <ScrollView HorizontalOptions="Center">
         <VerticalStackLayout>
             <Label 
             Text="Lista de Manwhas"
@@ -20,31 +20,34 @@
 
             <!-- CollectionView configurada -->
             <CollectionView 
-            ItemsSource="{Binding Manwhas}" 
-            Margin="10"
-            ItemsLayout="HorizontalGrid, 2">
+                ItemsSource="{Binding Manwhas}" 
+                SelectionMode="Single"
+                HorizontalScrollBarVisibility="Always"> 
+                <CollectionView.ItemsLayout>
+                    <!-- Configuración para desplazamiento horizontal -->
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15" />
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout 
-                        Spacing="10" 
-                        Padding="10"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Start">
-                            <!-- Imagen más grande -->
-                            <Image Source="{Binding ImagenUrl}" 
-                               HeightRequest="150" 
-                               WidthRequest="150"
-                               Aspect="AspectFill" />
-                            <!-- Nombre debajo de la imagen -->
-                            <Label Text="{Binding Nombre}" 
-                               FontSize="20" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                            <Label Text="{Binding Capitulos, StringFormat='{0:0}'}" 
-                               FontSize="12" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                        </VerticalStackLayout>
+                        <Frame Padding="10" HasShadow="False" BorderColor="LightGray" CornerRadius="10">
+                            <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
+                                <!-- Imagen -->
+                                <Image Source="{Binding ImagenUrl}" 
+                   HeightRequest="350" 
+                   WidthRequest="200"
+                   Aspect="AspectFill" />
+
+                                <!-- Nombre -->
+                                <Label Text="{Binding Nombre}"
+                   FontSize="Medium"
+                   HorizontalOptions="Center" />
+
+                                <!-- Capitulos -->
+                                <Label Text="{Binding Capitulos, StringFormat='Capítulos: {0:0}'}"
+                   FontSize="Small"
+                   HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

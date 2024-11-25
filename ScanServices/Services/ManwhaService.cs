@@ -21,5 +21,16 @@ namespace ScanServices.Services
             }
             return JsonSerializer.Deserialize<List<Manwha>>(content, options);
         }
+
+        public async Task<List<Manwha>?> GetAllFavoritosAsync()
+        {
+            var response = await client.GetAsync($"{_endpoint}/getFavoritos");
+            var content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content?.ToString());
+            }
+            return JsonSerializer.Deserialize<List<Manwha>>(content, options);
+        }
     }
 }

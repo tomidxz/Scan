@@ -8,7 +8,7 @@
         <viewModels:SolicitudViewModel/>
     </ContentPage.BindingContext>
 
-    <ScrollView HeightRequest="300" HorizontalOptions="Center">
+    <ScrollView HeightRequest="700" HorizontalOptions="CenterAndExpand">
         <VerticalStackLayout>
         <Label 
             Text="Lista de Solicitudes"
@@ -34,11 +34,11 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical" Padding="10">
+                            <StackLayout Orientation="Vertical">
                                 <Label Text="{Binding ManwhaPedido}" 
                                            FontSize="Medium" 
                                            FontAttributes="Bold" />
-                                    <Label Text="{Binding CantidadCapitulos}" 
+                                    <Label Text="{Binding CantidadCapitulos, StringFormat='{0:0}'}" 
                                                FontSize="Small" 
                                                TextColor="Gray" />
                                 <Label Text="{Binding Comentario}" 
