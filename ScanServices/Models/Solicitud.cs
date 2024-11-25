@@ -10,6 +10,7 @@ public partial class Solicitud
 
     public string ManwhaPedido { get; set; } = null!;
     public string Comentario { get; set; } = null!;
+    public decimal CantidadCapitulos { get; set; }
     public DateTime Fecha { get; set; }
     public bool Eliminado { get; set; } = false;
 }

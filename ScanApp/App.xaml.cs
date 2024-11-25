@@ -8,7 +8,7 @@ namespace ScanApp
         {
             InitializeComponent();
 
-            MainPage = new ManwhasPopularesView();
+            MainPage = new ScanShell();
         }
     }
 }

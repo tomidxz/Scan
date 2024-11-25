@@ -72,11 +72,17 @@
 	  <Compile Update="ScanShell.xaml.cs">
 	    <DependentUpon>ScanShell.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\AddEditSolicitudView.xaml.cs">
+	    <DependentUpon>AddEditSolicitudView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\ManwhasView.xaml.cs">
 	    <DependentUpon>ManwhasView.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\ManwhasPopularesView.xaml.cs">
 	    <DependentUpon>ManwhasPopularesView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SolicitudView.xaml.cs">
+	    <DependentUpon>SolicitudView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -87,10 +93,22 @@
 	  <MauiXaml Update="ContentViews\FlyoutHeader.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\AddEditSolicitudView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\IniciarSesionView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ManwhasPopularesView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ManwhasView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\RegistrarseView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SolicitudView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -224,6 +224,7 @@ public partial class ScanContext : DbContext
                 Id = 1,
                 ManwhaPedido = "Prision Juvenil",
                 Comentario = "Me gustaría que lo traduzcan al español",
+                CantidadCapitulos = 50,
                 Fecha = new DateTime(2021, 5, 15),
             },
             new Solicitud
@@ -231,6 +232,7 @@ public partial class ScanContext : DbContext
                 Id = 2,
                 ManwhaPedido = "The Breaker",
                 Comentario = "Si es posible me encantaria que lo traduzcan al español",
+                CantidadCapitulos = 72,
                 Fecha = new DateTime(2021, 5, 16),
             },
             new Solicitud
@@ -246,6 +248,7 @@ public partial class ScanContext : DbContext
                 Id = 4,
                 ManwhaPedido = "The God of High School",
                 Comentario = "Apreciaria mucho que lo traduzcan",
+                CantidadCapitulos = 100,
                 Fecha = new DateTime(2021, 5, 18),
 
             }

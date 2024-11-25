@@ -4,12 +4,59 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ScanApp"
+    xmlns:views="clr-namespace:ScanApp.Views"
+    xmlns:viewmodels="clr-namespace:ScanApp.ViewModels"
+    xmlns:contentviews="clr-namespace:ScanApp.ContentViews"
     Shell.FlyoutBehavior="Disabled"
-    Title="ScanApp">
+    Title="ScanApp"
+    FlyoutHeaderBehavior="CollapseOnScroll">
 
+    <Shell.BindingContext>
+        <viewmodels:ScanShellViewModel />
+    </Shell.BindingContext>
+
+    <Shell.FlyoutHeader>
+        <contentviews:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <contentviews:FlyoutFooter />
+    </Shell.FlyoutFooter>
+
+    <FlyoutItem Route="ScanApp"
+            FlyoutDisplayOptions="AsMultipleItems" x:Name="FlyoutItemsPrincipal">
+        <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+
+        <ShellContent
+                Title="Manwhas Populares"
+                ContentTemplate="{DataTemplate views:ManwhasPopularesView}"
+                Route="ManwhasPopulares" />
+
+        <Tab Title="Manwhas"
+                 Route="Manwhas">
+            <ShellContent
+                    Title="Lista"
+                    ContentTemplate="{DataTemplate views:ManwhasView}"
+                    Route="ListaManwhas" />
+        </Tab>
+        <Tab Title="Solicitud"
+         Route="Solicitud">
+            <ShellContent
+            Title="Solicutudes"
+            ContentTemplate="{DataTemplate views:SolicitudView}"
+            Route="Solicitud" />
+        </Tab>
+    </FlyoutItem>
+    <MenuItem Text="Cerrar sesión"
+          Command="{Binding LogoutCommand}"/>
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+         Title="Iniciar sesión"
+         ContentTemplate="{DataTemplate views:IniciarSesionView}"
+         Route="Login" 
+         IsVisible="{Binding IsUserLogout}"/>
+
 
 </Shell>

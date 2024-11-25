@@ -1,4 +1,4 @@
-namespace KioscoInformaticoApp.ContentViews;
+namespace ScanApp.ContentViews;
 
 public partial class FlyoutFooter : ContentView
 {

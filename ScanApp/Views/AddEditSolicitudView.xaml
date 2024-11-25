@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ScanApp.ViewModels"
+             x:Class="ScanApp.Views.AddEditSolicitudView"
+             Title="AddEditSolicitud">
+    <ContentPage.BindingContext>
+        <viewModels:AddEditSolicitudViewModel/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label Text="Agregar o editar solicitud"
+               FontSize="Header"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Entry Placeholder="Nombre del manwha"
+               Text="{Binding ManwhaPedido}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Entry Placeholder="cantidad de capitulos"
+               Text="{Binding CantidadCapitulos}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Entry Placeholder="Comentario"
+               Text="{Binding Comentario}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Button Text="Guardar"
+                Command="{Binding SaveSolicitudCommand}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        <Button Text="Cancelar"
+                Command="{Binding CancelarCommand}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/> 
+    </VerticalStackLayout>
+</ContentPage>

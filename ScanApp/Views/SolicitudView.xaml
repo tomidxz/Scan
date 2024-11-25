@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScanApp.Views.SolicitudView"
+             xmlns:viewModels="clr-namespace:ScanApp.ViewModels"
+             Title="SolicitudView">
+    <ContentPage.BindingContext>
+        <viewModels:SolicitudViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView HeightRequest="300" HorizontalOptions="Center">
+        <VerticalStackLayout>
+        <Label 
+            Text="Lista de Solicitudes"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Header"/>
+        <Entry Placeholder="Buscar Solicitud"
+               Text="{Binding FilterSolicitudes}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,10,0,10"/>
+
+        <ActivityIndicator IsRunning="{Binding }"/>
+
+            <ListView 
+                      ItemsSource="{Binding Solicitudes}"
+                      SelectedItem="{Binding SelectedSolicitud}"
+                      SelectionMode="Single"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding GetSolicitudesCommand}"
+                      IsRefreshing="{Binding IsRefreshing}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="10">
+                                <Label Text="{Binding ManwhaPedido}" 
+                                           FontSize="Medium" 
+                                           FontAttributes="Bold" />
+                                    <Label Text="{Binding CantidadCapitulos}" 
+                                               FontSize="Small" 
+                                               TextColor="Gray" />
+                                <Label Text="{Binding Comentario}" 
+                                       FontSize="Small" 
+                                       TextColor="DarkGray" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+            <Button Text="Agregar Solicitud"
+                    Command="{Binding AddSolicitudCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="0,10,0,10"/>
+
+            <Button Text="Editar solicitud"
+                    Command="{Binding EditarSolicitudCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="0,10,0,10"/>   
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -37,7 +37,11 @@
                                Aspect="AspectFill" />
                             <!-- Nombre debajo de la imagen -->
                             <Label Text="{Binding Nombre}" 
-                               FontSize="16" 
+                               FontSize="20" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                            <Label Text="{Binding Capitulos, StringFormat='{0:0}'}" 
+                               FontSize="12" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center" />
                         </VerticalStackLayout>

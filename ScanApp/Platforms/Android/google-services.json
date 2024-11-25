@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "249046812446",
+    "project_id": "scan-4d933",
+    "storage_bucket": "scan-4d933.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249046812446:android:98aff19fb5dd8331aceb0f",
+        "android_client_info": {
+          "package_name": "com.companyname.scanapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF6XPwaoXbpVWgWtYgR3eg8pNydFlz08I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

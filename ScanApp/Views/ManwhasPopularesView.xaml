@@ -9,42 +9,47 @@
     </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label 
-            Text="LISTA DE Manwhas Populares"
+            Text="Manwhas Populares"
             VerticalOptions="Center" 
             FontSize="Header"
             HorizontalOptions="Center" />
         <ActivityIndicator IsRunning="{Binding ActivityStart}"/>
-        <ScrollView HeightRequest="300" HorizontalOptions="Center">
+        <ScrollView HeightRequest="500" HorizontalOptions="Center">
             <ListView 
-                      ItemsSource="{Binding Manwhas}"
-                      SelectionMode="Single"
-                      IsPullToRefreshEnabled="True"
-                      RefreshCommand="{Binding GetManwhasCommand}">
+              ItemsSource="{Binding Manwhas}"
+              SelectionMode="Single"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding GetManwhasCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <HorizontalStackLayout Padding="10">
+                            <HorizontalStackLayout Padding="10" Spacing="15" HorizontalOptions="Start">
                                 <!-- Imagen -->
                                 <Image Source="{Binding ImagenUrl}" 
-                                   HeightRequest="50" 
-                                   WidthRequest="50"
-                                   Aspect="AspectFill" 
-                                   HorizontalOptions="Start" />
+                               HeightRequest="50" 
+                               WidthRequest="50"
+                               Aspect="AspectFill" 
+                               HorizontalOptions="Start" />
 
-                                <!-- Nombre -->
-                                <Label Text="{Binding Nombre}"
-                                   VerticalOptions="Center"
+                                <!-- Información debajo de la imagen (Nombre y Capitulos) -->
+                                <VerticalStackLayout HorizontalOptions="StartAndExpand" Spacing="5">
+                                    <!-- Nombre -->
+                                    <Label Text="{Binding Nombre}"
+                                   VerticalOptions="Start"
                                    HorizontalOptions="StartAndExpand"
                                    FontSize="Medium" />
+
+                                    <!-- Capitulos -->
+                                    <Label Text="{Binding Capitulos, StringFormat='{0:0}'}"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="StartAndExpand"
+                                   FontSize="Small" />
+                                </VerticalStackLayout>
                             </HorizontalStackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-
-
-
         </ScrollView>
     </VerticalStackLayout>
 </ContentPage>
