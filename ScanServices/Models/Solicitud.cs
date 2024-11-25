@@ -9,6 +9,7 @@ public partial class Solicitud
     public int Id { get; set; }
 
     public string ManwhaPedido { get; set; } = null!;
+    public string Comentario { get; set; } = null!;
     public DateTime Fecha { get; set; }
     public bool Eliminado { get; set; } = false;
 }

@@ -10,11 +10,12 @@ public partial class Donador
 
     [Required(ErrorMessage ="El campo Nombre debe ser obligatorio")]
     public string Nombre { get; set; } = null!;
-    [Required(ErrorMessage = "El campo Direccion debe ser obligatorio")]
+    [Required(ErrorMessage = "El campo Pais debe ser obligatorio")]
     public string Pais { get; set; } = null!;
 
     public string Telefonos { get; set; } = null!;
-    
+
+    [Required(ErrorMessage = "El campo Total debe ser obligatorio")]
     public decimal TotalDonado { get; set; }
 
     public bool Eliminado { get; set; }= false;

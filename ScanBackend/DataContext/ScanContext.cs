@@ -49,7 +49,7 @@ public partial class ScanContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         #region datos semilla Scan
-        //carga de datos semilla Productos
+        //carga de datos semilla Manwhas
         modelBuilder.Entity<Manwha>().HasData(
             new Manwha()
             {
@@ -88,7 +88,6 @@ public partial class ScanContext : DbContext
         {
             Id = 1,
             Nombre = "Cesar Torres",
-            Direccion = "Calle Falsa 123",
             Telefonos = "123456789",
             PuestoEmpleado = PuestoEmpleadoEnum.Encargado,
             FechaNacimiento = new DateTime(1985, 5, 15),
@@ -98,7 +97,6 @@ public partial class ScanContext : DbContext
         {
             Id = 2,
             Nombre = "Agustina Santillan",
-            Direccion = "Avenida Siempre Viva 742",
             Telefonos = "987654321",
             PuestoEmpleado = PuestoEmpleadoEnum.Traductor,
             FechaNacimiento = new DateTime(1990, 8, 25),
@@ -108,7 +106,6 @@ public partial class ScanContext : DbContext
         {
             Id = 3,
             Nombre = "Lucas Djovanni",
-            Direccion = "Boulevard de los Sueños Rotos 101",
             Telefonos = "555666777",
             PuestoEmpleado = PuestoEmpleadoEnum.Typer,
             FechaNacimiento = new DateTime(1978, 2, 3),
@@ -118,7 +115,6 @@ public partial class ScanContext : DbContext
         {
             Id = 4,
             Nombre = "Ana Noseda",
-            Direccion = "Ruta Nacional 19 Km 58",
             Telefonos = "444555666",
             PuestoEmpleado = PuestoEmpleadoEnum.Cleaner,
             FechaNacimiento = new DateTime(2000, 12, 12),
@@ -128,7 +124,6 @@ public partial class ScanContext : DbContext
         {
             Id = 5,
             Nombre = "Pedro Gimenez",
-            Direccion = "Calle del Sol 456",
             Telefonos = "333444555",
             PuestoEmpleado = PuestoEmpleadoEnum.Typer,
             FechaNacimiento = new DateTime(1995, 7, 30),
@@ -138,7 +133,6 @@ public partial class ScanContext : DbContext
         {
             Id = 6,
             Nombre = "Camila Perez",
-            Direccion = "Avenida de los Pajaros 789",
             Telefonos = "222333444",
             PuestoEmpleado = PuestoEmpleadoEnum.Traductor,
             FechaNacimiento = new DateTime(1992, 10, 10),
@@ -211,18 +205,21 @@ public partial class ScanContext : DbContext
             {
                 Id = 1,
                 ManwhaPedido = "Prision Juvenil",
+                Comentario = "Me gustaría que lo traduzcan al español",
                 Fecha = new DateTime(2021, 5, 15),
             },
             new Solicitud
             {
                 Id = 2,
                 ManwhaPedido = "The Breaker",
+                Comentario = "Si es posible me encantaria que lo traduzcan al español",
                 Fecha = new DateTime(2021, 5, 16),
             },
             new Solicitud
             {
                 Id = 3,
                 ManwhaPedido = "To not Die",
+                Comentario = "por favor traduzcanlo al español",
                 Fecha = new DateTime(2021, 5, 17),
 
             },
@@ -230,6 +227,7 @@ public partial class ScanContext : DbContext
             {
                 Id = 4,
                 ManwhaPedido = "The God of High School",
+                Comentario = "Apreciaria mucho que lo traduzcan",
                 Fecha = new DateTime(2021, 5, 18),
 
             }
