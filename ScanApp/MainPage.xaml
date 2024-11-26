@@ -4,16 +4,33 @@
              xmlns:viewModels="clr-namespace:ScanApp.ViewModels"
              x:Class="ScanApp.MainPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Definición de colores -->
+            <Color x:Key="BackgroundColor">#212121</Color>
+            <Color x:Key="TextColor">#FFFFFF</Color>
+            <Color x:Key="FrameBorderColor">#616161</Color>
+            <Color x:Key="ButtonColor">#FFB300</Color>
+            <Color x:Key="ActivityIndicatorColor">#29B6F6</Color>
+            <Color x:Key="ImageBorderColor">#424242</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.BindingContext>
         <viewModels:ManwhasFavoritosViewModel/>
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
+
+    <VerticalStackLayout BackgroundColor="{DynamicResource BackgroundColor}">
         <Label 
             Text="Favoritos"
             VerticalOptions="Center" 
             FontSize="Header"
-            HorizontalOptions="Center" />
-        <ActivityIndicator IsRunning="{Binding ActivityStart}"/>
+            HorizontalOptions="Center"
+            TextColor="{DynamicResource TextColor}" />
+
+        <ActivityIndicator IsRunning="{Binding ActivityStart}" 
+                           Color="{DynamicResource ActivityIndicatorColor}" />
+
         <ScrollView HorizontalOptions="Center">
             <CollectionView 
                     ItemsSource="{Binding Manwhas}" 
@@ -23,27 +40,31 @@
                     <!-- Configuración para desplazamiento horizontal -->
                     <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15" />
                 </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10" HasShadow="False" BorderColor="LightGray" CornerRadius="10">
+                        <Frame Padding="10" HasShadow="False" 
+                               BorderColor="{DynamicResource FrameBorderColor}" 
+                               CornerRadius="10">
                             <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                                 <!-- Imagen -->
                                 <Image Source="{Binding ImagenUrl}" 
-                                   HeightRequest="350" 
-                                   WidthRequest="200"
-                                   Aspect="AspectFill" />
+                                       HeightRequest="350" 
+                                       WidthRequest="200"
+                                       Aspect="AspectFill" />
 
                                 <!-- Nombre -->
                                 <Label Text="{Binding Nombre}"
-                                   FontSize="Medium"
-                                   HorizontalOptions="Center" />
+                                       FontSize="Medium"
+                                       HorizontalOptions="Center"
+                                       TextColor="{DynamicResource TextColor}" />
 
                                 <!-- Capitulos -->
                                 <Label Text="{Binding Capitulos, StringFormat='Capítulos: {0:0}'}"
-                                   FontSize="Small"
-                                   HorizontalOptions="Center" />
+                                       FontSize="Small"
+                                       HorizontalOptions="Center"
+                                       TextColor="{DynamicResource TextColor}" />
                             </VerticalStackLayout>
-
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -3,71 +3,100 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ScanApp.Views.SolicitudView"
              xmlns:viewModels="clr-namespace:ScanApp.ViewModels"
-             Title="SolicitudView">
+             Title="Solicitudes">
     <ContentPage.BindingContext>
         <viewModels:SolicitudViewModel/>
     </ContentPage.BindingContext>
 
     <ScrollView HeightRequest="700" HorizontalOptions="CenterAndExpand">
+        <ScrollView.Resources>
+            <!--#region NewRegion -->
+            
+            <!-- Estilos personalizados -->
+            <Style TargetType="Label" x:Key="HeaderLabelStyle">
+                <Setter Property="FontSize" Value="Header" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="Purple" />
+                <!-- Azul claro -->
+            </Style>
+
+            <Style TargetType="Label" x:Key="ItemLabelStyle">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="Gray" />
+            </Style>
+
+            <Style TargetType="Button" x:Key="CustomButtonStyle">
+                <Setter Property="BackgroundColor" Value="#4A90E2" />
+                <!-- Azul claro -->
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Margin" Value="0,10,0,10" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <!--#endregion-->
+        </ScrollView.Resources>
+
         <VerticalStackLayout>
-        <Label 
+            <!-- Encabezado -->
+            <Label 
             Text="Lista de Solicitudes"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            FontSize="Header"/>
-        <Entry Placeholder="Buscar Solicitud"
+            Style="{StaticResource HeaderLabelStyle}" />
+
+            <!-- Entrada de búsqueda -->
+            <Entry Placeholder="Buscar Solicitud"
                Text="{Binding FilterSolicitudes}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
                Margin="0,10,0,10"/>
 
-        <ActivityIndicator IsRunning="{Binding }"/>
+            <!-- Indicador de carga -->
+            <ActivityIndicator IsRunning="{Binding IsLoading}" />
 
+            <!-- Lista de solicitudes -->
             <ListView 
-                      ItemsSource="{Binding Solicitudes}"
-                      SelectedItem="{Binding SelectedSolicitud}"
-                      SelectionMode="Single"
-                      IsPullToRefreshEnabled="True"
-                      RefreshCommand="{Binding GetSolicitudesCommand}"
-                      IsRefreshing="{Binding IsRefreshing}">
+              ItemsSource="{Binding Solicitudes}"
+              SelectedItem="{Binding SelectedSolicitud}"
+              SelectionMode="Single"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding GetSolicitudesCommand}"
+              IsRefreshing="{Binding IsRefreshing}">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Vertical" Padding="10" Spacing="5">
                                 <Label Text="{Binding ManwhaPedido}" 
-                                           FontSize="Medium" 
-                                           FontAttributes="Bold" />
-                                    <Label Text="{Binding CantidadCapitulos, StringFormat='{0:0}'}" 
-                                               FontSize="Small" 
-                                               TextColor="Gray" />
+                                   FontSize="Medium" 
+                                   FontAttributes="Bold"
+                                   TextColor="#4A90E2" />
+                                <!-- Azul claro -->
+                                <Label Text="{Binding CantidadCapitulos, StringFormat='{0:0}'}" 
+                                   Style="{StaticResource ItemLabelStyle}" />
                                 <Label Text="{Binding Comentario}" 
-                                       FontSize="Small" 
-                                       TextColor="DarkGray" />
+                                   FontSize="Small" 
+                                   TextColor="DarkGray" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-
             </ListView>
+
+            <!-- Botones con estilo -->
             <Button Text="Agregar Solicitud"
-                    Command="{Binding AddSolicitudCommand}"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Margin="0,10,0,10"/>
+                Command="{Binding AddSolicitudCommand}"
+                Style="{StaticResource CustomButtonStyle}" />
 
-            <Button Text="Editar solicitud"
-                    Command="{Binding EditarSolicitudCommand}"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Margin="0,10,0,10"/>
-            <Button Text="Eliminar solicitud"
-                    Command="{Binding EliminarSolicitudCommand}"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Margin="0,10,0,10"/>
+            <Button Text="Editar Solicitud"
+                Command="{Binding EditarSolicitudCommand}"
+                Style="{StaticResource CustomButtonStyle}" />
 
-
+            <Button Text="Eliminar Solicitud"
+                Command="{Binding EliminarSolicitudCommand}"
+                Style="{StaticResource CustomButtonStyle}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

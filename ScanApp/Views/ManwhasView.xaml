@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ScanApp.Views.ManwhasView"
              xmlns:viewModels="clr-namespace:ScanApp.ViewModels"
-             Title="ManwhasView">
+             Title="Manwhas">
     <ContentPage.BindingContext>
         <viewModels:ManwhasViewModel/>
     </ContentPage.BindingContext>

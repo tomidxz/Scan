@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ScanApp.ViewModels"
              x:Class="ScanApp.Views.AddEditSolicitudView"
-             Title="AddEditSolicitud">
+             Title="Agregar/Editar Solicitud">
     <ContentPage.BindingContext>
         <viewModels:AddEditSolicitudViewModel/>
     </ContentPage.BindingContext>
@@ -15,22 +15,25 @@
         <Entry Placeholder="Nombre del manwha"
                Text="{Binding ManwhaPedido}"
                HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+               VerticalOptions="Center"
+               Margin="0,10,0,0"/>
         <Entry Placeholder="cantidad de capitulos"
                Text="{Binding CantidadCapitulos}"
                HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+               VerticalOptions="Center"
+               Margin="0,10,0,0"/>
         <Entry Placeholder="Comentario"
                Text="{Binding Comentario}"
                HorizontalOptions="Center"
-               VerticalOptions="Center"/>
-        <Button Text="Guardar"
+               VerticalOptions="Center"
+               Margin="0,10,0,0"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+            <Button Text="Guardar"
                 Command="{Binding SaveSolicitudCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-        <Button Text="Cancelar"
+                HorizontalOptions="Center"/>
+            <Button Text="Cancelar"
                 Command="{Binding CancelarCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/> 
+                HorizontalOptions="Center"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

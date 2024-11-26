@@ -76,13 +76,16 @@ namespace ScanApp.ViewModels
             FilterSolicitudesCommand = new Command(async () => await FilterSolicitud());
             AddSolicitudCommand = new Command (async () => await AddSolicitud());
             EditarSolicitudCommand = new Command(async (obj) => await EditarSolicitud(),PermitirEditar);
-            EliminarSolicitudCommand = new Command(async (obj) => await EliminarSolicitud(), PermitirEditar);
+            EliminarSolicitudCommand = new Command(async (obj) => await EliminarSolicitud());
             GetSolicitudes();
         }
-
+        private bool PermitirEditar(object arg)
+        {
+            return SelectedSolicitud != null;
+        }
         private async Task EliminarSolicitud()
         {
-            var confirmacion = await App.Current.MainPage.DisplayAlert("Eliminar Solicitud", "¿Está seguro que desea eliminar la solicitud?", "Si", "No");
+            var confirmacion = await App.Current.MainPage.DisplayAlert("Eliminar Solicitud", "¿Desea eliminar la solicitud?", "Si", "No");
             if (confirmacion)
             {
                 await solicitudService.DeleteAsync(SelectedSolicitud.Id);
@@ -91,10 +94,7 @@ namespace ScanApp.ViewModels
             }
         }
 
-        private bool PermitirEditar(object arg)
-        {
-            return SelectedSolicitud != null;
-        }
+        
 
         private async Task EditarSolicitud()
         {

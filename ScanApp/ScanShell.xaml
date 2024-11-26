@@ -50,13 +50,10 @@
             Route="Solicitud" />
         </Tab>
     </FlyoutItem>
-    <MenuItem Text="Cerrar sesión"
-          Command="{Binding LogoutCommand}"/>
+
     <ShellContent
-         Title="Iniciar sesión"
-         ContentTemplate="{DataTemplate views:IniciarSesionView}"
-         Route="Login" 
-         IsVisible="{Binding IsUserLogout}"/>
-
-
+     Title="Iniciar sesión"
+     ContentTemplate="{DataTemplate views:IniciarSesionView}"
+     Route="Login" 
+     IsVisible="{Binding IsUserLogout}"/>
 </Shell>

@@ -2,7 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ScanApp.ContentViews.FlyoutHeader">
-    <Grid BackgroundColor="Black">
+    <Grid BackgroundColor="MediumPurple">
         <Image Aspect="AspectFill" 
             Source="xamarinstore.jpg" 
             Opacity="0.6" />
