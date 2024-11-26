@@ -82,11 +82,11 @@ namespace ScanApp.ViewModels
 
         private async Task EliminarSolicitud()
         {
-            var confirmacion = await App.Current.MainPage.DisplayAlert("Eliminar Solicitud", "¿Está seguro que desea eliminar el paciente?", "Si", "No");
+            var confirmacion = await App.Current.MainPage.DisplayAlert("Eliminar Solicitud", "¿Está seguro que desea eliminar la solicitud?", "Si", "No");
             if (confirmacion)
             {
-                await solicitudService.DeleteAsync(selectedSolicitud.Id);
-                selectedSolicitud = null;
+                await solicitudService.DeleteAsync(SelectedSolicitud.Id);
+                SelectedSolicitud = null;
                 await GetSolicitudes();
             }
         }

@@ -93,8 +93,8 @@ namespace ScanBackend.Controllers
             {
                 return NotFound();
             }
-
-            _context.Solicitudes.Remove(solicitud);
+            solicitud.Eliminado = true;
+            _context.Solicitudes.Update(solicitud);
             await _context.SaveChangesAsync();
 
             return NoContent();
