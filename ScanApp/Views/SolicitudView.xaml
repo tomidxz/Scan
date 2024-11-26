@@ -60,7 +60,12 @@
                     Command="{Binding EditarSolicitudCommand}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    Margin="0,10,0,10"/>   
+                    Margin="0,10,0,10"/>
+            <Button Text="Eliminar solicitud"
+                    Command="{Binding EliminarSolicitudCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="0,10,0,10"/>
 
 
         </VerticalStackLayout>

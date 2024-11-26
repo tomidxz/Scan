@@ -26,12 +26,12 @@
     <FlyoutItem Route="ScanApp"
             FlyoutDisplayOptions="AsMultipleItems" x:Name="FlyoutItemsPrincipal">
         <ShellContent
-                Title="Home"
+                Title="Favoritos"
                 ContentTemplate="{DataTemplate local:MainPage}"
                 Route="MainPage" />
 
         <ShellContent
-                Title="Manwhas Populares"
+                Title="Populares"
                 ContentTemplate="{DataTemplate views:ManwhasPopularesView}"
                 Route="ManwhasPopulares" />
 

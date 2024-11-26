@@ -18,34 +18,5 @@ public partial class IniciarSesionView : ContentPage
     }
     private async void OnReceibedMessage(Message mensaje)
     {
-        if (mensaje.Value == "AbrirManwhas")
-        {
-            await Navigation.PushAsync(new ManwhasView());
-        }
-        if (mensaje.Value == "AbrirPopulares")
-        {
-            await Navigation.PushAsync(new ManwhasPopularesView());
-        }
-        if (mensaje.Value == "AbrirSolicitud")
-        {
-            await Navigation.PushAsync(new SolicitudView());
-        }
-        if (mensaje.Value == "AgregarSolicitud")
-        {
-            await Navigation.PushAsync(new AddEditSolicitudView());
-        }
-        if (mensaje.Value == "EditarSolicitud")
-        {
-            await Navigation.PushAsync(new AddEditSolicitudView(mensaje.SolicitudAEditar));
-        }
-
-        if (mensaje.Value =="CerrarVentana")
-        {
-            await Navigation.PopAsync();
-        }
-        if (mensaje.Value == "AbrirAppShell")
-        {
-            await Navigation.PushAsync(new ScanShell());
-        }
     }
 }

@@ -9,7 +9,7 @@
     </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label 
-            Text="Manwhas Populares"
+            Text="Favoritos"
             VerticalOptions="Center" 
             FontSize="Header"
             HorizontalOptions="Center" />
@@ -29,20 +29,21 @@
                             <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                                 <!-- Imagen -->
                                 <Image Source="{Binding ImagenUrl}" 
-                       HeightRequest="350" 
-                       WidthRequest="200"
-                       Aspect="AspectFill" />
+                                   HeightRequest="350" 
+                                   WidthRequest="200"
+                                   Aspect="AspectFill" />
 
                                 <!-- Nombre -->
                                 <Label Text="{Binding Nombre}"
-                       FontSize="Medium"
-                       HorizontalOptions="Center" />
+                                   FontSize="Medium"
+                                   HorizontalOptions="Center" />
 
                                 <!-- Capitulos -->
                                 <Label Text="{Binding Capitulos, StringFormat='Capítulos: {0:0}'}"
-                       FontSize="Small"
-                       HorizontalOptions="Center" />
+                                   FontSize="Small"
+                                   HorizontalOptions="Center" />
                             </VerticalStackLayout>
+
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

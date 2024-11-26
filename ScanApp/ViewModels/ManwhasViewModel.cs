@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ScanApp.ViewModels
 {
@@ -22,7 +23,6 @@ namespace ScanApp.ViewModels
 			set {
                 filterManwhas = value; 
 				OnPropertyChanged();
-				_=FilterManwha();
 			}
 		}
         //porque hacemos esto, porque lo dijo Gabriel
@@ -40,7 +40,7 @@ namespace ScanApp.ViewModels
 
 
         private ObservableCollection<Manwha> manwhas;
-
+        
         public ObservableCollection<Manwha> Manwhas
         {
             get { return manwhas; }
@@ -50,26 +50,80 @@ namespace ScanApp.ViewModels
         }
 
         private List<Manwha>? manwhasListToFilter;
-        private Manwha selectedManwha;
 
 
 
-        public Command GetManwhasCommand { get; }
-        public Command FilterManwhasCommand { get; }
+        public Command GetManwhasCommand { get; } 
+        public ICommand AgregarFavoritosCommand { get; set; }
+
+
 
         public ManwhasViewModel()
         {
+
             GetManwhasCommand = new Command (async () => await GetManwhas());
-            FilterManwhasCommand = new Command(async () => await FilterManwha());
+            // Comando para manejar el evento de Long Press
+            AgregarFavoritosCommand = new Command<Manwha>(OnLongPress);
             GetManwhas();
         }
 
-
-        private async Task FilterManwha()
+        private async void OnLongPress(Manwha manwha)
         {
-            var manwhasFiltrados = manwhasListToFilter.Where(p => p.Nombre.ToUpper().Contains(filterManwhas.ToUpper()));
-            
-            Manwhas = new ObservableCollection<Manwha>(manwhasFiltrados);
+            // Verifica si el manga ya es favorito para decidir qué acción tomar
+            if (manwha.Favoritos)
+            {
+                // Si ya es favorito, preguntar si desea quitarlo
+                var result = await App.Current.MainPage.DisplayAlert(
+                    "Opciones",
+                    $"¿Deseas quitar '{manwha.Nombre}' de favoritos?",
+                    "Sí",
+                    "No");
+
+                if (result)
+                {
+                    // Lógica para quitarlo de favoritos
+                    manwha.Favoritos = false;
+                    await App.Current.MainPage.DisplayAlert("Favoritos", $"{manwha.Nombre} ha sido quitado de favoritos.", "OK");
+                }
+            }
+            else
+            {
+                // Si no es favorito, preguntar si desea agregarlo
+                var result = await App.Current.MainPage.DisplayAlert(
+                    "Opciones",
+                    $"¿Deseas agregar '{manwha.Nombre}' a favoritos?",
+                    "Sí",
+                    "No");
+
+                if (result)
+                {
+                    // Lógica para agregarlo a favoritos
+                    manwha.Favoritos = true;
+                    await App.Current.MainPage.DisplayAlert("Favoritos", $"{manwha.Nombre} ha sido agregado a favoritos.", "OK");
+                }
+            }
+
+            // Actualizar el estado del manga en la base de datos
+            await manwhaService.UpdateAsync(manwha);
+        }
+
+
+        private async void OnLongPressQuitar(Manwha manwha)
+        {
+            // Mostrar ventana emergente con opciones
+            var result = await App.Current.MainPage.DisplayAlert(
+                "Opciones",
+                $"¿Deseas quitar '{manwha.Nombre}' de favoritos?",
+                "Sí",
+                "No");
+
+            if (result)
+            {
+                // Aquí agregas la lógica para marcar como favorito
+                manwha.Favoritos = true;
+                await App.Current.MainPage.DisplayAlert("Favoritos", $"{manwha.Nombre} ha sido quitado de favoritos.", "OK");
+            }
+            await manwhaService.UpdateAsync(manwha);
         }
 
         public async Task GetManwhas()

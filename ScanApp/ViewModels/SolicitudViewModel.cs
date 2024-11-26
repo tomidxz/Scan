@@ -66,7 +66,9 @@ namespace ScanApp.ViewModels
         public Command GetSolicitudesCommand { get; }
         public Command FilterSolicitudesCommand { get; }
         public Command AddSolicitudCommand { get; }
-        public Command EditarSolicitudCommand { get; }  
+        public Command EditarSolicitudCommand { get; }
+        public Command EliminarSolicitudCommand { get; }
+
 
         public SolicitudViewModel()
         {
@@ -74,7 +76,19 @@ namespace ScanApp.ViewModels
             FilterSolicitudesCommand = new Command(async () => await FilterSolicitud());
             AddSolicitudCommand = new Command (async () => await AddSolicitud());
             EditarSolicitudCommand = new Command(async (obj) => await EditarSolicitud(),PermitirEditar);
+            EliminarSolicitudCommand = new Command(async (obj) => await EliminarSolicitud(), PermitirEditar);
             GetSolicitudes();
+        }
+
+        private async Task EliminarSolicitud()
+        {
+            var confirmacion = await App.Current.MainPage.DisplayAlert("Eliminar Solicitud", "¿Está seguro que desea eliminar el paciente?", "Si", "No");
+            if (confirmacion)
+            {
+                await solicitudService.DeleteAsync(selectedSolicitud.Id);
+                selectedSolicitud = null;
+                await GetSolicitudes();
+            }
         }
 
         private bool PermitirEditar(object arg)

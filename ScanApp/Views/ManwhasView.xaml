@@ -33,20 +33,29 @@
                             <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                                 <!-- Imagen -->
                                 <Image Source="{Binding ImagenUrl}" 
-                   HeightRequest="350" 
-                   WidthRequest="200"
-                   Aspect="AspectFill" />
+                                       HeightRequest="350" 
+                                       WidthRequest="200"
+                                       Aspect="AspectFill" />
 
                                 <!-- Nombre -->
                                 <Label Text="{Binding Nombre}"
-                   FontSize="Medium"
-                   HorizontalOptions="Center" />
+                                       FontSize="Medium"
+                                       HorizontalOptions="Center" />
 
                                 <!-- Capitulos -->
                                 <Label Text="{Binding Capitulos, StringFormat='Capítulos: {0:0}'}"
-                   FontSize="Small"
-                   HorizontalOptions="Center" />
+                                       FontSize="Small"
+                                       HorizontalOptions="Center" />
                             </VerticalStackLayout>
+
+                            <!-- Detectar long press -->
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                NumberOfTapsRequired="2" 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ManwhasViewModel}}, Path=AgregarFavoritosCommand}" 
+                                CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

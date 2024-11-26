@@ -33,10 +33,12 @@ namespace ScanApp.ViewModels
 
         [ObservableProperty]
         private bool recordarContraseña;
-
+        [ObservableProperty]
+        private bool isUserLogout = true;
 
         public IRelayCommand IniciarSesionCommand { get; }
         public IRelayCommand RegistrarseCommand { get; }
+        public IRelayCommand LogoutCommand { get; }
 
         public IniciarSesionViewModel()
         {
@@ -54,8 +56,17 @@ namespace ScanApp.ViewModels
 
             IniciarSesionCommand = new RelayCommand(IniciarSesion,PermitirIniciarSesion);
             RegistrarseCommand = new RelayCommand(Registrarse);
+            LogoutCommand = new RelayCommand(CerrarSesion);
             // RegistrarseCommand = new Command(Registrarse,PermitirRegistrarse);
         }
+
+        private async void CerrarSesion()
+        {
+            isUserLogout = true;
+            (App.Current.MainPage as ScanShell).DisableAppAfterLogin();
+            await Shell.Current.GoToAsync("IniciarSesion");
+        }
+
 
         private async void Registrarse()
         {
