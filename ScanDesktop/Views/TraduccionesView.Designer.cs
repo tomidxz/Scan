@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             comboManwhas = new ComboBox();
             label2 = new Label();
@@ -79,6 +80,7 @@
             // numericCapitulo
             // 
             numericCapitulo.Location = new Point(145, 16);
+            numericCapitulo.Maximum = new decimal(new int[] { -159383553, 46653770, 5421, 0 });
             numericCapitulo.Name = "numericCapitulo";
             numericCapitulo.Size = new Size(109, 27);
             numericCapitulo.TabIndex = 3;
@@ -183,6 +185,15 @@
             // dataGridTraducciones
             // 
             dataGridTraducciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridTraducciones.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridTraducciones.Location = new Point(15, 212);
             dataGridTraducciones.Name = "dataGridTraducciones";
             dataGridTraducciones.RowHeadersWidth = 51;

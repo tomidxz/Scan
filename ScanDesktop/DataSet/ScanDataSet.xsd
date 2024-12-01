@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ScanDataSet" targetNamespace="http://tempuri.org/ScanDataSet.xsd" xmlns:mstns="http://tempuri.org/ScanDataSet.xsd" xmlns="http://tempuri.org/ScanDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ScanDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ScanDataSet" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ScanDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DSDetallesTraduccion" msprop:Generator_RowClassName="DSDetallesTraduccionRow" msprop:Generator_RowEvHandlerName="DSDetallesTraduccionRowChangeEventHandler" msprop:Generator_RowDeletedName="DSDetallesTraduccionRowDeleted" msprop:Generator_RowDeletingName="DSDetallesTraduccionRowDeleting" msprop:Generator_RowEvArgName="DSDetallesTraduccionRowChangeEvent" msprop:Generator_TablePropName="DSDetallesTraduccion" msprop:Generator_RowChangedName="DSDetallesTraduccionRowChanged" msprop:Generator_UserTableName="DSDetallesTraduccion" msprop:Generator_RowChangingName="DSDetallesTraduccionRowChanging" msprop:Generator_TableClassName="DSDetallesTraduccionDataTable" msprop:Generator_TableVarName="tableDSDetallesTraduccion">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" minOccurs="0" />
+              <xs:element name="Manwha" msprop:Generator_UserColumnName="Manwha" msprop:Generator_ColumnPropNameInTable="ManwhaColumn" msprop:Generator_ColumnPropNameInRow="Manwha" msprop:Generator_ColumnVarNameInTable="columnManwha" type="xs:string" minOccurs="0" />
+              <xs:element name="EmpleadoTraductor" msprop:Generator_UserColumnName="EmpleadoTraductor" msprop:Generator_ColumnPropNameInTable="EmpleadoTraductorColumn" msprop:Generator_ColumnPropNameInRow="EmpleadoTraductor" msprop:Generator_ColumnVarNameInTable="columnEmpleadoTraductor" type="xs:string" minOccurs="0" />
+              <xs:element name="EmpleadoTyper" msprop:Generator_UserColumnName="EmpleadoTyper" msprop:Generator_ColumnPropNameInTable="EmpleadoTyperColumn" msprop:Generator_ColumnPropNameInRow="EmpleadoTyper" msprop:Generator_ColumnVarNameInTable="columnEmpleadoTyper" type="xs:string" minOccurs="0" />
+              <xs:element name="EmpleadoCleaner" msprop:Generator_UserColumnName="EmpleadoCleaner" msprop:Generator_ColumnPropNameInTable="EmpleadoCleanerColumn" msprop:Generator_ColumnPropNameInRow="EmpleadoCleaner" msprop:Generator_ColumnVarNameInTable="columnEmpleadoCleaner" type="xs:string" minOccurs="0" />
+              <xs:element name="CapituloTraducido" msprop:Generator_UserColumnName="CapituloTraducido" msprop:Generator_ColumnPropNameInTable="CapituloTraducidoColumn" msprop:Generator_ColumnPropNameInRow="CapituloTraducido" msprop:Generator_ColumnVarNameInTable="columnCapituloTraducido" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DSManwha" msprop:Generator_RowClassName="DSManwhaRow" msprop:Generator_RowEvHandlerName="DSManwhaRowChangeEventHandler" msprop:Generator_RowDeletedName="DSManwhaRowDeleted" msprop:Generator_RowDeletingName="DSManwhaRowDeleting" msprop:Generator_RowEvArgName="DSManwhaRowChangeEvent" msprop:Generator_TablePropName="DSManwha" msprop:Generator_RowChangedName="DSManwhaRowChanged" msprop:Generator_UserTableName="DSManwha" msprop:Generator_RowChangingName="DSManwhaRowChanging" msprop:Generator_TableClassName="DSManwhaDataTable" msprop:Generator_TableVarName="tableDSManwha">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" minOccurs="0" />
+              <xs:element name="Nombre" msprop:Generator_UserColumnName="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" type="xs:string" minOccurs="0" />
+              <xs:element name="Capitulos" msprop:Generator_UserColumnName="Capitulos" msprop:Generator_ColumnPropNameInTable="CapitulosColumn" msprop:Generator_ColumnPropNameInRow="Capitulos" msprop:Generator_ColumnVarNameInTable="columnCapitulos" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DSEmpleado" msprop:Generator_RowClassName="DSEmpleadoRow" msprop:Generator_RowEvHandlerName="DSEmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="DSEmpleadoRowDeleted" msprop:Generator_RowDeletingName="DSEmpleadoRowDeleting" msprop:Generator_RowEvArgName="DSEmpleadoRowChangeEvent" msprop:Generator_TablePropName="DSEmpleado" msprop:Generator_RowChangedName="DSEmpleadoRowChanged" msprop:Generator_UserTableName="DSEmpleado" msprop:Generator_RowChangingName="DSEmpleadoRowChanging" msprop:Generator_TableClassName="DSEmpleadoDataTable" msprop:Generator_TableVarName="tableDSEmpleado">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" minOccurs="0" />
+              <xs:element name="Nombre" msprop:Generator_UserColumnName="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" type="xs:string" minOccurs="0" />
+              <xs:element name="Correo" msprop:Generator_UserColumnName="Correo" msprop:Generator_ColumnPropNameInTable="CorreoColumn" msprop:Generator_ColumnPropNameInRow="Correo" msprop:Generator_ColumnVarNameInTable="columnCorreo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,4 +1,5 @@
-﻿using ScanServices.Enums;
+﻿using ScanDesktop.ViewsReport;
+using ScanServices.Enums;
 using ScanServices.Interfaces;
 using ScanServices.Models;
 using ScanServices.Services;
@@ -93,6 +94,7 @@ namespace ScanDesktop.Views
                 EmpleadoTraductor = (Empleado)comboTraductor.SelectedItem,
                 EmpleadoTyper = (Empleado)comboTyper.SelectedItem,
                 CapituloTraducido = (int)numericCapitulo.Value,
+                Fecha = DateTime.Now
             };
             traduccions.Add(traduccion);
             dataGridTraducciones.DataSource = traduccions.ToList();
@@ -121,6 +123,8 @@ namespace ScanDesktop.Views
             detallesTraduccion.CapituloTraducido = (int)numericCapitulo.Value;
             detallesTraduccion.Fecha = DateTime.Now;
             var nuevatraduccion = await traduccionService.AddAsync(detallesTraduccion);
+            var reporteTraduccion = new TraduccionReportView(nuevatraduccion);
+
 
         }
     }
