@@ -26,7 +26,6 @@ public partial class ScanContext : DbContext
 
     public virtual DbSet<DetallesTraduccion> DetallesTraducciones { get; set; }
 
-    public virtual DbSet<DetallesDonacion> DetallesDonaciones { get; set; }
     public virtual DbSet<Donador> Donadores { get; set; }
 
     public virtual DbSet<Origen> Origenes { get; set; }
@@ -209,14 +208,13 @@ public partial class ScanContext : DbContext
             {
                 Id = 1,
                 FormaPago = FormaDePagoEnum.Paypal,
-                Descuento = 5,
                 Total = 3000,
                 DonadorId = 1,
                 Fecha = DateTime.Now
          
             },
-            new Donacion() { Id = 2, FormaPago = FormaDePagoEnum.Tarjeta_Credito, Descuento = 10, Total = 5000, DonadorId = 2, Fecha = DateTime.Now },
-            new Donacion() { Id = 3, FormaPago = FormaDePagoEnum.Tarjeta_Debito, Descuento = 21, Total = 8000, DonadorId = 1, Fecha = DateTime.Now }
+            new Donacion() { Id = 2, FormaPago = FormaDePagoEnum.Tarjeta_Credito, Total = 5000, DonadorId = 2, Fecha = DateTime.Now },
+            new Donacion() { Id = 3, FormaPago = FormaDePagoEnum.Tarjeta_Debito, Total = 8000, DonadorId = 1, Fecha = DateTime.Now }
         );
 
         //carga de datos semilla de Solicitudes
@@ -255,26 +253,6 @@ public partial class ScanContext : DbContext
 
             }
         );
-        //carga de datos semilla de DetallesDonacion
-        modelBuilder.Entity<DetallesDonacion>().HasData(
-            new DetallesDonacion() { 
-                Id = 1, DonacionId = 1, MensajeDonador = "Muchas gracias por traducir mis manwhas preferidos"},
-            new DetallesDonacion()
-            {
-                Id = 2,
-                DonacionId = 2,
-                MensajeDonador = "Espero que les sirva para seguir con su trabajo"
-            },
-            new DetallesDonacion()
-            {
-                Id = 3,
-                DonacionId = 3,
-                MensajeDonador = "Gracias por todo lo que hacen"
-            }
-
-
-        );
-
 
 
         #endregion
@@ -291,8 +269,6 @@ public partial class ScanContext : DbContext
         modelBuilder.Entity<Origen>().HasQueryFilter(m => !m.Eliminado);
         modelBuilder.Entity<Manwha>().HasQueryFilter(m => !m.Eliminado);
         modelBuilder.Entity<Donacion>().HasQueryFilter(m => !m.Eliminado);
-        modelBuilder.Entity<DetallesDonacion>().HasQueryFilter(m => !m.Eliminado);
-
         #endregion
     }
    
