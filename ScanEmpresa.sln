@@ -16,6 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScanApp", "ScanApp\ScanApp.
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScanDesktop", "ScanDesktop\ScanDesktop.csproj", "{357CDFB9-0E6B-4D98-A7E3-76DA0EA57970}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A3E9BA54-5DE6-4E4C-9D03-06CEB8C82F1B} = {A3E9BA54-5DE6-4E4C-9D03-06CEB8C82F1B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

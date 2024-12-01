@@ -137,6 +137,9 @@ namespace ScanBackend.Migrations
                     b.Property<bool>("Eliminado")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<int>("EmpleadoId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime(6)");
 
@@ -150,6 +153,8 @@ namespace ScanBackend.Migrations
 
                     b.HasIndex("DonadorId");
 
+                    b.HasIndex("EmpleadoId");
+
                     b.ToTable("Donaciones");
 
                     b.HasData(
@@ -159,7 +164,8 @@ namespace ScanBackend.Migrations
                             Descuento = 5m,
                             DonadorId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 11, 25, 18, 56, 55, 600, DateTimeKind.Local).AddTicks(3414),
+                            EmpleadoId = 1,
+                            Fecha = new DateTime(2024, 12, 1, 2, 18, 31, 316, DateTimeKind.Local).AddTicks(747),
                             FormaPago = 3,
                             Total = 3000m
                         },
@@ -169,7 +175,8 @@ namespace ScanBackend.Migrations
                             Descuento = 10m,
                             DonadorId = 2,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 11, 25, 18, 56, 55, 600, DateTimeKind.Local).AddTicks(3438),
+                            EmpleadoId = 1,
+                            Fecha = new DateTime(2024, 12, 1, 2, 18, 31, 316, DateTimeKind.Local).AddTicks(775),
                             FormaPago = 0,
                             Total = 5000m
                         },
@@ -179,7 +186,8 @@ namespace ScanBackend.Migrations
                             Descuento = 21m,
                             DonadorId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 11, 25, 18, 56, 55, 600, DateTimeKind.Local).AddTicks(3442),
+                            EmpleadoId = 1,
+                            Fecha = new DateTime(2024, 12, 1, 2, 18, 31, 316, DateTimeKind.Local).AddTicks(778),
                             FormaPago = 1,
                             Total = 8000m
                         });
@@ -613,7 +621,15 @@ namespace ScanBackend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ScanServices.Models.Empleado", "Empleado")
+                        .WithMany()
+                        .HasForeignKey("EmpleadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Donador");
+
+                    b.Navigation("Empleado");
                 });
 
             modelBuilder.Entity("ScanServices.Models.Donacion", b =>

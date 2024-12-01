@@ -18,7 +18,7 @@
                VerticalOptions="Center"
                Margin="0,10,0,0"/>
         <Entry Placeholder="cantidad de capitulos"
-               Text="{Binding CantidadCapitulos}"
+               Text="{Binding CantidadCapitulos, StringFormat='{}{0:F2}'}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
                Margin="0,10,0,0"/>

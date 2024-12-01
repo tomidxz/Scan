@@ -213,6 +213,7 @@ public partial class ScanContext : DbContext
                 Total = 3000,
                 DonadorId = 1,
                 Fecha = DateTime.Now
+         
             },
             new Donacion() { Id = 2, FormaPago = FormaDePagoEnum.Tarjeta_Credito, Descuento = 10, Total = 5000, DonadorId = 2, Fecha = DateTime.Now },
             new Donacion() { Id = 3, FormaPago = FormaDePagoEnum.Tarjeta_Debito, Descuento = 21, Total = 8000, DonadorId = 1, Fecha = DateTime.Now }
