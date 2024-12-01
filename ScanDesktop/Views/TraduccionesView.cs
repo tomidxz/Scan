@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ScanServices.Enums;
+using ScanServices.Interfaces;
+using ScanServices.Models;
+using ScanServices.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +16,111 @@ namespace ScanDesktop.Views
 {
     public partial class TraduccionesView : Form
     {
+        IGenericService<Empleado> empleadoService = new GenericService<Empleado>();
+        IGenericService<DetallesTraduccion> traduccionService = new GenericService<DetallesTraduccion>();
+        IGenericService<Manwha> manwhaService = new GenericService<Manwha>();
+
+        BindingSource listaTraduccion = new BindingSource();
+        List<DetallesTraduccion> traduccions = new List<DetallesTraduccion>();
+        DetallesTraduccion detallesTraduccion = new DetallesTraduccion();
         public TraduccionesView()
         {
             InitializeComponent();
+            AjustePantalla();
         }
 
-        private void Traducciones_Load(object sender, EventArgs e)
+        private async Task AjustePantalla()
         {
+            #region carga de combos
+
+            var manwhasTask = manwhaService.GetAllAsync();
+            var empleadosTask = empleadoService.GetAllAsync();
+
+            await Task.WhenAll(manwhasTask, empleadosTask);
+
+            // Obtén los resultados de las tareas
+            var manwhas = manwhasTask.Result;
+            var empleados = empleadosTask.Result;
+
+            // Filtra los empleados para cada puesto específico
+            var empleadosCleaner = empleados.Where(e => e.PuestoEmpleado == PuestoEmpleadoEnum.Cleaner).ToList();
+            var empleadosTraductor = empleados.Where(e => e.PuestoEmpleado == PuestoEmpleadoEnum.Traductor).ToList();
+            var empleadosTyper = empleados.Where(e => e.PuestoEmpleado == PuestoEmpleadoEnum.Typer).ToList();
+
+            // Asigna los datos filtrados a cada ComboBox
+            comboManwhas.DataSource = manwhas;
+            comboManwhas.DisplayMember = "Nombre";
+            comboManwhas.ValueMember = "Id";
+            comboManwhas.SelectedIndex = -1;
+
+            comboCleaner.DataSource = empleadosCleaner;
+            comboCleaner.DisplayMember = "Nombre";
+            comboCleaner.ValueMember = "Id";
+            comboCleaner.SelectedIndex = -1;
+
+            comboTraductor.DataSource = empleadosTraductor;
+            comboTraductor.DisplayMember = "Nombre";
+            comboTraductor.ValueMember = "Id";
+            comboTraductor.SelectedIndex = -1;
+
+            comboTyper.DataSource = empleadosTyper;
+            comboTyper.DisplayMember = "Nombre";
+            comboTyper.ValueMember = "Id";
+            comboTyper.SelectedIndex = -1;
+
+
+
+            #endregion
+            {
+                numericCapitulo.Value = 0;
+                dataGridTraducciones.DataSource = traduccions.ToList();
+                #region Ajuste de columnas
+                dataGridTraducciones.Columns["ManwhasId"].Visible = false;
+                dataGridTraducciones.Columns["ManwhaId"].Visible = false;
+                dataGridTraducciones.Columns["EmpleadoEncargado"].Visible = false;
+                dataGridTraducciones.Columns["CompraId"].Visible = false;
+                dataGridTraducciones.Columns["Eliminado"].Visible = false;
+                #endregion
+            }
+        }
+
+        private async void iconBtnAgregar_Click(object sender, EventArgs e)
+        {
+            var traduccion = new DetallesTraduccion
+            {
+                Manwha = (Manwha)comboManwhas.SelectedItem,
+                EmpleadoCleaner = (Empleado)comboCleaner.SelectedItem,
+                EmpleadoTraductor = (Empleado)comboTraductor.SelectedItem,
+                EmpleadoTyper = (Empleado)comboTyper.SelectedItem,
+                CapituloTraducido = (int)numericCapitulo.Value,
+            };
+            traduccions.Add(traduccion);
+            dataGridTraducciones.DataSource = traduccions.ToList();
+
+        }
+
+        private void iconBtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridTraducciones.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar una traducción para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var detalleTraduccion = (DetallesTraduccion)dataGridTraducciones.CurrentRow.DataBoundItem;
+            traduccions.Remove(detalleTraduccion);
+            dataGridTraducciones.DataSource = traduccions.ToList();
+        }
+
+        private async void iconBtnFinalizar_Click(object sender, EventArgs e)
+        {
+            detallesTraduccion.Manwha = (Manwha)comboManwhas.SelectedItem;
+            detallesTraduccion.EmpleadoCleaner = (Empleado)comboCleaner.SelectedItem;
+            detallesTraduccion.EmpleadoTraductor = (Empleado)comboTraductor.SelectedItem;
+            detallesTraduccion.EmpleadoTyper = (Empleado)comboTyper.SelectedItem;
+            detallesTraduccion.CapituloTraducido = (int)numericCapitulo.Value;
+            detallesTraduccion.Fecha = DateTime.Now;
+            var nuevatraduccion = await traduccionService.AddAsync(detallesTraduccion);
 
         }
     }

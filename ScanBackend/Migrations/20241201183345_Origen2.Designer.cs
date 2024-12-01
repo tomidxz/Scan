@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScanService.DataContext;
 
@@ -11,9 +12,11 @@ using ScanService.DataContext;
 namespace ScanBackend.Migrations
 {
     [DbContext(typeof(ScanContext))]
-    partial class ScanContextModelSnapshot : ModelSnapshot
+    [Migration("20241201183345_Origen2")]
+    partial class Origen2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,7 +113,7 @@ namespace ScanBackend.Migrations
                             Id = 1,
                             DonadorId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 12, 1, 15, 41, 58, 710, DateTimeKind.Local).AddTicks(9074),
+                            Fecha = new DateTime(2024, 12, 1, 15, 33, 44, 110, DateTimeKind.Local).AddTicks(8050),
                             FormaPago = 3,
                             Total = 3000m
                         },
@@ -119,7 +122,7 @@ namespace ScanBackend.Migrations
                             Id = 2,
                             DonadorId = 2,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 12, 1, 15, 41, 58, 710, DateTimeKind.Local).AddTicks(9092),
+                            Fecha = new DateTime(2024, 12, 1, 15, 33, 44, 110, DateTimeKind.Local).AddTicks(8069),
                             FormaPago = 0,
                             Total = 5000m
                         },
@@ -128,7 +131,7 @@ namespace ScanBackend.Migrations
                             Id = 3,
                             DonadorId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 12, 1, 15, 41, 58, 710, DateTimeKind.Local).AddTicks(9094),
+                            Fecha = new DateTime(2024, 12, 1, 15, 33, 44, 110, DateTimeKind.Local).AddTicks(8071),
                             FormaPago = 1,
                             Total = 8000m
                         });
@@ -333,6 +336,9 @@ namespace ScanBackend.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("OrigenId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Popular")
                         .HasColumnType("tinyint(1)");
 
@@ -341,6 +347,8 @@ namespace ScanBackend.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrigenId");
 
                     b.ToTable("Manwhas");
 
@@ -353,6 +361,7 @@ namespace ScanBackend.Migrations
                             Favoritos = true,
                             ImagenUrl = "https://i.pinimg.com/564x/bb/3c/f7/bb3cf78908440b3b06898fb0fd9935da.jpg",
                             Nombre = "Lookism",
+                            OrigenId = 1,
                             Popular = false,
                             Sinopsis = "Daniel Park, o Park Hyung Suk, es un estudiante de secundaria impopular, gordo y feo que es intimidado y despreciado.\r\nDecidido a huir de sus problemas actuales y comenzar de nuevo, se muda a Seúl y asiste a una nueva escuela secundaria. Sin embargo, una noche durante las vacaciones, obtiene un nuevo cuerpo alto, musculoso y muy guapo. También se da cuenta de que al dormir en un cuerpo, despierta en el otro, y que no importa si lleva 24 horas seguidas despierto, siempre se siente descansado en el cuerpo que ocupa.\r\nMientras Daniel vive su vida con sus dos cuerpos, comienza a ver cuánto el mundo discrimina a las personas simplemente por ser poco atractivas o diferentes. De ahí el nombre de la obra \"Lookism\"."
                         },
@@ -364,6 +373,7 @@ namespace ScanBackend.Migrations
                             Favoritos = false,
                             ImagenUrl = "https://i.pinimg.com/564x/43/cf/63/43cf6368ec1b14bf4b069601fbdfbdff.jpg",
                             Nombre = "Manager Kim",
+                            OrigenId = 1,
                             Popular = false,
                             Sinopsis = "Padre soltero, gerente de la compañía y ex miembro de operaciones encubiertas, el Sr. Kim vivió una vida normal hasta que su hija, Minji, desapareció. Después de descubrir que su hija podría estar muerta, el Sr. Kim se vuelve despiadado y busca información. Rescatará a su hija por cualquier medio necesario, incluso si eso significa destruir todo y a todos los que se interpongan en su camino."
                         },
@@ -375,6 +385,7 @@ namespace ScanBackend.Migrations
                             Favoritos = false,
                             ImagenUrl = "https://i.pinimg.com/564x/18/7c/41/187c410a2f4d705ed87bc881843a35cf.jpg",
                             Nombre = "Quest Supremacy",
+                            OrigenId = 1,
                             Popular = false,
                             Sinopsis = "Kim SooHyun es un estudiante de secundaria normal que no es bueno para estudiar, pelear o ser atractivo. De repente, se enfrenta a una ventana de menú justo frente a sus ojos para acto seguido recibir los poderes de un [sistema] de juego de la nada, ¿cómo enfrentará nuestro héroe los desafíos que tiene por delante?"
                         },
@@ -386,6 +397,7 @@ namespace ScanBackend.Migrations
                             Favoritos = false,
                             ImagenUrl = "https://static.wikia.nocookie.net/vsbattles/images/b/b4/Dowan-reality-quest.jpg",
                             Nombre = "Reality Quest",
+                            OrigenId = 1,
                             Popular = true,
                             Sinopsis = "Debido a la amenaza del matón de la escuela de conseguirle objetos raros en un juego de movil, Ha Do-wan, el desafortunado jugador de videojuegos, murió después de jugar dia y noche durante una semana. En el momento en que murió, fue revivido en su clase, una semana antes de morir… Todo seguia igual que aquel día. ¡Lo único que ha cambiado es la que flota delante de él! ¿Qué? ¡¿Utilizara las habilidades de los juegos que ha jugado hasta ahora para vencer al tipo que le hacia bulling?!"
                         },
@@ -397,8 +409,49 @@ namespace ScanBackend.Migrations
                             Favoritos = false,
                             ImagenUrl = "https://i.pinimg.com/originals/d9/3b/1c/d93b1c5bd932f0d22fdea2a7960053b7.jpg",
                             Nombre = "Killer Pietro",
+                            OrigenId = 1,
                             Popular = true,
                             Sinopsis = "Luego de consagrar su vida a la organización criminal El Club de la Gloria, Pietro abandona su carrera de sicario legendario para pasar sus últimos días a cargo de una tienda de libros de segunda. Motivados por la amenaza que supone, la organización aprovecha su edad para eliminarlo. Pero al borde de la muerte, un golpe de suerte le permite regresar a sus años mozos y recuperar la fuerza que perdió con el tiempo. Ahora que está en óptimas condiciones, Pietro se vengará de la organización que lo traicionó."
+                        });
+                });
+
+            modelBuilder.Entity("ScanServices.Models.Origen", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Origenes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Eliminado = false,
+                            Nombre = "Coreano"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Eliminado = false,
+                            Nombre = "Chino"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Eliminado = false,
+                            Nombre = "Japones"
                         });
                 });
 
@@ -512,6 +565,15 @@ namespace ScanBackend.Migrations
                         .IsRequired();
 
                     b.Navigation("Donador");
+                });
+
+            modelBuilder.Entity("ScanServices.Models.Manwha", b =>
+                {
+                    b.HasOne("ScanServices.Models.Origen", "Origen")
+                        .WithMany()
+                        .HasForeignKey("OrigenId");
+
+                    b.Navigation("Origen");
                 });
 #pragma warning restore 612, 618
         }

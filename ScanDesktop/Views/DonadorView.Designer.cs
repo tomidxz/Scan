@@ -38,12 +38,12 @@
             iconAgregarDonador = new FontAwesome.Sharp.IconButton();
             dataGridDonadores = new DataGridView();
             tabAgregarEditarDonador = new TabPage();
+            txtTelefonoDonador = new TextBox();
             iconCancelar = new FontAwesome.Sharp.IconButton();
             iconGuardarDonador = new FontAwesome.Sharp.IconButton();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown1 = new NumericUpDown();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            numericTotalDonado = new NumericUpDown();
+            txtPaisDonador = new TextBox();
+            txtNombreDonador = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -52,8 +52,7 @@
             tabListaDonadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridDonadores).BeginInit();
             tabAgregarEditarDonador.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericTotalDonado).BeginInit();
             SuspendLayout();
             // 
             // tabDonadores
@@ -122,6 +121,7 @@
             iconEliminarDonador.TabIndex = 3;
             iconEliminarDonador.Text = "Eliminar";
             iconEliminarDonador.UseVisualStyleBackColor = true;
+            iconEliminarDonador.Click += iconEliminarDonador_Click;
             // 
             // iconEditarDonador
             // 
@@ -134,6 +134,7 @@
             iconEditarDonador.TabIndex = 2;
             iconEditarDonador.Text = "Editar";
             iconEditarDonador.UseVisualStyleBackColor = true;
+            iconEditarDonador.Click += iconEditarDonador_Click;
             // 
             // iconAgregarDonador
             // 
@@ -146,6 +147,7 @@
             iconAgregarDonador.TabIndex = 1;
             iconAgregarDonador.Text = "Agregar";
             iconAgregarDonador.UseVisualStyleBackColor = true;
+            iconAgregarDonador.Click += iconAgregarDonador_Click;
             // 
             // dataGridDonadores
             // 
@@ -161,12 +163,12 @@
             // 
             // tabAgregarEditarDonador
             // 
+            tabAgregarEditarDonador.Controls.Add(txtTelefonoDonador);
             tabAgregarEditarDonador.Controls.Add(iconCancelar);
             tabAgregarEditarDonador.Controls.Add(iconGuardarDonador);
-            tabAgregarEditarDonador.Controls.Add(numericUpDown2);
-            tabAgregarEditarDonador.Controls.Add(numericUpDown1);
-            tabAgregarEditarDonador.Controls.Add(textBox2);
-            tabAgregarEditarDonador.Controls.Add(textBox1);
+            tabAgregarEditarDonador.Controls.Add(numericTotalDonado);
+            tabAgregarEditarDonador.Controls.Add(txtPaisDonador);
+            tabAgregarEditarDonador.Controls.Add(txtNombreDonador);
             tabAgregarEditarDonador.Controls.Add(label5);
             tabAgregarEditarDonador.Controls.Add(label4);
             tabAgregarEditarDonador.Controls.Add(label3);
@@ -179,6 +181,13 @@
             tabAgregarEditarDonador.Text = "Agregar/Editar";
             tabAgregarEditarDonador.UseVisualStyleBackColor = true;
             // 
+            // txtTelefonoDonador
+            // 
+            txtTelefonoDonador.Location = new Point(296, 145);
+            txtTelefonoDonador.Name = "txtTelefonoDonador";
+            txtTelefonoDonador.Size = new Size(207, 27);
+            txtTelefonoDonador.TabIndex = 10;
+            // 
             // iconCancelar
             // 
             iconCancelar.IconChar = FontAwesome.Sharp.IconChar.None;
@@ -190,6 +199,7 @@
             iconCancelar.TabIndex = 9;
             iconCancelar.Text = "Cancelar";
             iconCancelar.UseVisualStyleBackColor = true;
+            iconCancelar.Click += iconCancelar_Click;
             // 
             // iconGuardarDonador
             // 
@@ -202,34 +212,28 @@
             iconGuardarDonador.TabIndex = 8;
             iconGuardarDonador.Text = "Guardar";
             iconGuardarDonador.UseVisualStyleBackColor = true;
+            iconGuardarDonador.Click += iconGuardarDonador_Click;
             // 
-            // numericUpDown2
+            // numericTotalDonado
             // 
-            numericUpDown2.Location = new Point(316, 212);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(187, 27);
-            numericUpDown2.TabIndex = 7;
+            numericTotalDonado.Location = new Point(316, 212);
+            numericTotalDonado.Name = "numericTotalDonado";
+            numericTotalDonado.Size = new Size(187, 27);
+            numericTotalDonado.TabIndex = 7;
             // 
-            // numericUpDown1
+            // txtPaisDonador
             // 
-            numericUpDown1.Location = new Point(296, 146);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(207, 27);
-            numericUpDown1.TabIndex = 6;
+            txtPaisDonador.Location = new Point(296, 90);
+            txtPaisDonador.Name = "txtPaisDonador";
+            txtPaisDonador.Size = new Size(207, 27);
+            txtPaisDonador.TabIndex = 5;
             // 
-            // textBox2
+            // txtNombreDonador
             // 
-            textBox2.Location = new Point(296, 90);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(207, 27);
-            textBox2.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(296, 38);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(207, 27);
-            textBox1.TabIndex = 4;
+            txtNombreDonador.Location = new Point(296, 38);
+            txtNombreDonador.Name = "txtNombreDonador";
+            txtNombreDonador.Size = new Size(207, 27);
+            txtNombreDonador.TabIndex = 4;
             // 
             // label5
             // 
@@ -281,8 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridDonadores).EndInit();
             tabAgregarEditarDonador.ResumeLayout(false);
             tabAgregarEditarDonador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericTotalDonado).EndInit();
             ResumeLayout(false);
         }
 
@@ -302,11 +305,11 @@
         private Label label3;
         private Label label2;
         private Label label5;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private NumericUpDown numericTotalDonado;
+        private TextBox txtPaisDonador;
+        private TextBox txtNombreDonador;
         private FontAwesome.Sharp.IconButton iconCancelar;
         private FontAwesome.Sharp.IconButton iconGuardarDonador;
+        private TextBox txtTelefonoDonador;
     }
 }

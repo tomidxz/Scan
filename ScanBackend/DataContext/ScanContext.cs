@@ -28,7 +28,6 @@ public partial class ScanContext : DbContext
 
     public virtual DbSet<Donador> Donadores { get; set; }
 
-    public virtual DbSet<Origen> Origenes { get; set; }
 
     public virtual DbSet<Manwha> Manwhas { get; set; }
 
@@ -93,12 +92,6 @@ public partial class ScanContext : DbContext
                 ImagenUrl = "https://i.pinimg.com/originals/d9/3b/1c/d93b1c5bd932f0d22fdea2a7960053b7.jpg",
                 Popular = true
             }
-            );
-        //carga de datos semilla de Origenes
-        modelBuilder.Entity<Origen>().HasData(
-            new Origen() { Id = 1, Nombre = "Coreano" },
-            new Origen() { Id = 2, Nombre = "Chino" },
-            new Origen() { Id = 3, Nombre = "Japones" }
             );
         //carga de datos semilla de Empleados
         modelBuilder.Entity<Empleado>().HasData(
@@ -266,7 +259,6 @@ public partial class ScanContext : DbContext
         modelBuilder.Entity<Empleado>().HasQueryFilter(m => !m.Eliminado);
         modelBuilder.Entity<Solicitud>().HasQueryFilter(m => !m.Eliminado);
         modelBuilder.Entity<DetallesTraduccion>().HasQueryFilter(m => !m.Eliminado);
-        modelBuilder.Entity<Origen>().HasQueryFilter(m => !m.Eliminado);
         modelBuilder.Entity<Manwha>().HasQueryFilter(m => !m.Eliminado);
         modelBuilder.Entity<Donacion>().HasQueryFilter(m => !m.Eliminado);
         #endregion

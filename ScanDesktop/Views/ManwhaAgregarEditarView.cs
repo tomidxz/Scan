@@ -43,7 +43,18 @@ namespace ScanDesktop.Views
 
         private void btnEditarIcon_Click(object sender, EventArgs e)
         {
-            manwhaCurrent = (Manwha)listaManwhas.Current;
+            // Verifica si hay una fila seleccionada en el DataGridView
+            if (dataGridManwhas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar un manwha para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Obtén el manwha seleccionado desde la fila seleccionada
+            var selectedRow = dataGridManwhas.SelectedRows[0];
+            manwhaCurrent = (Manwha)selectedRow.DataBoundItem;
+
+            // Llena los controles con la información del manwha
             txtNombreManwha.Text = manwhaCurrent.Nombre;
             numericCapManwha.Value = (decimal)manwhaCurrent.Capitulos;
             txtSinopsisManwha.Text = manwhaCurrent.Sinopsis;
@@ -51,17 +62,41 @@ namespace ScanDesktop.Views
             picturePortada.ImageLocation = manwhaCurrent.ImagenUrl;
             checkBoxPopular.Checked = manwhaCurrent.Popular;
 
+            // Cambia al tab de edición
             tabControlManwha.SelectedTab = tabPageAgregarEditar;
         }
 
         private async void btnEliminarIcon_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("¿Está seguro que que desea eliminar el Manwha?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Verifica si hay una fila seleccionada en el DataGridView
+            if (dataGridManwhas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar un manwha para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Obtén el manwha seleccionado desde la fila seleccionada
+            var selectedRow = dataGridManwhas.SelectedRows[0];
+            var manwhaSeleccionado = (Manwha)selectedRow.DataBoundItem;
+
+            // Confirmación del usuario
+            var result = MessageBox.Show("¿Está seguro que desea eliminar el Manwha?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                var manwhaCurrent = (Manwha)listaManwhas.Current;
-                await manwhaService.DeleteAsync(manwhaCurrent.Id);
-                CargarGrilla();
+                try
+                {
+                    // Llama al servicio para eliminar el manwha
+                    await manwhaService.DeleteAsync(manwhaSeleccionado.Id);
+
+                    // Recarga la grilla
+                    await CargarGrilla();
+
+                    MessageBox.Show("Manwha eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar el manwha: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

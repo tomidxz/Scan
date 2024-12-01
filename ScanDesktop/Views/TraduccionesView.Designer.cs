@@ -31,7 +31,7 @@
             label1 = new Label();
             comboManwhas = new ComboBox();
             label2 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            numericCapitulo = new NumericUpDown();
             label3 = new Label();
             comboTyper = new ComboBox();
             label4 = new Label();
@@ -39,16 +39,15 @@
             label5 = new Label();
             comboTraductor = new ComboBox();
             panel1 = new Panel();
-            dateTimePicker1 = new DateTimePicker();
-            label6 = new Label();
-            dataGridView1 = new DataGridView();
             iconBtnAgregar = new FontAwesome.Sharp.IconButton();
-            iconBtnEditar = new FontAwesome.Sharp.IconButton();
+            dateTimeFecha = new DateTimePicker();
+            label6 = new Label();
+            dataGridTraducciones = new DataGridView();
             iconBtnEliminar = new FontAwesome.Sharp.IconButton();
             iconBtnFinalizar = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericCapitulo).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridTraducciones).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -77,12 +76,12 @@
             label2.TabIndex = 2;
             label2.Text = "Capitulo traducido:";
             // 
-            // numericUpDown1
+            // numericCapitulo
             // 
-            numericUpDown1.Location = new Point(145, 16);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(109, 27);
-            numericUpDown1.TabIndex = 3;
+            numericCapitulo.Location = new Point(145, 16);
+            numericCapitulo.Name = "numericCapitulo";
+            numericCapitulo.Size = new Size(109, 27);
+            numericCapitulo.TabIndex = 3;
             // 
             // label3
             // 
@@ -140,7 +139,7 @@
             panel1.Controls.Add(iconBtnAgregar);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(comboTraductor);
-            panel1.Controls.Add(numericUpDown1);
+            panel1.Controls.Add(numericCapitulo);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(comboCleaner);
@@ -150,32 +149,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(720, 125);
             panel1.TabIndex = 10;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(598, 18);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(134, 27);
-            dateTimePicker1.TabIndex = 11;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(532, 20);
-            label6.Name = "label6";
-            label6.Size = new Size(50, 20);
-            label6.TabIndex = 10;
-            label6.Text = "Fecha:";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(15, 212);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(604, 188);
-            dataGridView1.TabIndex = 12;
             // 
             // iconBtnAgregar
             // 
@@ -188,18 +161,33 @@
             iconBtnAgregar.TabIndex = 10;
             iconBtnAgregar.Text = "Agregar";
             iconBtnAgregar.UseVisualStyleBackColor = true;
+            iconBtnAgregar.Click += iconBtnAgregar_Click;
             // 
-            // iconBtnEditar
+            // dateTimeFecha
             // 
-            iconBtnEditar.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconBtnEditar.IconColor = Color.Black;
-            iconBtnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconBtnEditar.Location = new Point(658, 212);
-            iconBtnEditar.Name = "iconBtnEditar";
-            iconBtnEditar.Size = new Size(94, 29);
-            iconBtnEditar.TabIndex = 11;
-            iconBtnEditar.Text = "Editar";
-            iconBtnEditar.UseVisualStyleBackColor = true;
+            dateTimeFecha.Format = DateTimePickerFormat.Short;
+            dateTimeFecha.Location = new Point(598, 18);
+            dateTimeFecha.Name = "dateTimeFecha";
+            dateTimeFecha.Size = new Size(134, 27);
+            dateTimeFecha.TabIndex = 11;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(532, 20);
+            label6.Name = "label6";
+            label6.Size = new Size(50, 20);
+            label6.TabIndex = 10;
+            label6.Text = "Fecha:";
+            // 
+            // dataGridTraducciones
+            // 
+            dataGridTraducciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridTraducciones.Location = new Point(15, 212);
+            dataGridTraducciones.Name = "dataGridTraducciones";
+            dataGridTraducciones.RowHeadersWidth = 51;
+            dataGridTraducciones.Size = new Size(604, 188);
+            dataGridTraducciones.TabIndex = 12;
             // 
             // iconBtnEliminar
             // 
@@ -212,6 +200,7 @@
             iconBtnEliminar.TabIndex = 13;
             iconBtnEliminar.Text = "Eliminar";
             iconBtnEliminar.UseVisualStyleBackColor = true;
+            iconBtnEliminar.Click += iconBtnEliminar_Click;
             // 
             // iconBtnFinalizar
             // 
@@ -224,6 +213,7 @@
             iconBtnFinalizar.TabIndex = 14;
             iconBtnFinalizar.Text = "Finalizar";
             iconBtnFinalizar.UseVisualStyleBackColor = true;
+            iconBtnFinalizar.Click += iconBtnFinalizar_Click;
             // 
             // TraduccionesView
             // 
@@ -232,20 +222,18 @@
             ClientSize = new Size(800, 450);
             Controls.Add(iconBtnFinalizar);
             Controls.Add(iconBtnEliminar);
-            Controls.Add(iconBtnEditar);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridTraducciones);
             Controls.Add(label6);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dateTimeFecha);
             Controls.Add(panel1);
             Controls.Add(comboManwhas);
             Controls.Add(label1);
             Name = "TraduccionesView";
             Text = "Traducciones";
-            Load += Traducciones_Load;
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericCapitulo).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridTraducciones).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -255,7 +243,7 @@
         private Label label1;
         private ComboBox comboManwhas;
         private Label label2;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericCapitulo;
         private Label label3;
         private ComboBox comboTyper;
         private Label label4;
@@ -264,10 +252,9 @@
         private ComboBox comboTraductor;
         private Panel panel1;
         private FontAwesome.Sharp.IconButton iconBtnAgregar;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimeFecha;
         private Label label6;
-        private DataGridView dataGridView1;
-        private FontAwesome.Sharp.IconButton iconBtnEditar;
+        private DataGridView dataGridTraducciones;
         private FontAwesome.Sharp.IconButton iconBtnEliminar;
         private FontAwesome.Sharp.IconButton iconBtnFinalizar;
     }

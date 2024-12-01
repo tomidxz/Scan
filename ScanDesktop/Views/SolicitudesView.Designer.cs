@@ -57,6 +57,7 @@
             iconEliminarSolicitud.TabIndex = 1;
             iconEliminarSolicitud.Text = "Eliminar";
             iconEliminarSolicitud.UseVisualStyleBackColor = true;
+            iconEliminarSolicitud.Click += iconEliminarSolicitud_Click;
             // 
             // iconSalir
             // 
@@ -69,6 +70,7 @@
             iconSalir.TabIndex = 2;
             iconSalir.Text = "Salir";
             iconSalir.UseVisualStyleBackColor = true;
+            iconSalir.Click += iconSalir_Click;
             // 
             // SolicitudesView
             // 
