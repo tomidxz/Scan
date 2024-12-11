@@ -12,8 +12,8 @@ using ScanService.DataContext;
 namespace ScanBackend.Migrations
 {
     [DbContext(typeof(ScanContext))]
-    [Migration("20241125141022_modificacionModels")]
-    partial class modificacionModels
+    [Migration("20241211141324_Arreglos")]
+    partial class Arreglos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,54 +25,6 @@ namespace ScanBackend.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("ScanServices.Models.DetallesDonacion", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("DonacionId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Eliminado")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("MensajeDonador")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DonacionId");
-
-                    b.ToTable("DetallesDonaciones");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DonacionId = 1,
-                            Eliminado = false,
-                            MensajeDonador = "Muchas gracias por traducir mis manwhas preferidos"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DonacionId = 2,
-                            Eliminado = false,
-                            MensajeDonador = "Espero que les sirva para seguir con su trabajo"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DonacionId = 3,
-                            Eliminado = false,
-                            MensajeDonador = "Gracias por todo lo que hacen"
-                        });
-                });
-
             modelBuilder.Entity("ScanServices.Models.DetallesTraduccion", b =>
                 {
                     b.Property<int>("Id")
@@ -81,11 +33,8 @@ namespace ScanBackend.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Cantidad")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CompraId")
-                        .HasColumnType("int");
+                    b.Property<decimal>("CapituloTraducido")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<bool>("Eliminado")
                         .HasColumnType("tinyint(1)");
@@ -101,6 +50,9 @@ namespace ScanBackend.Migrations
 
                     b.Property<int?>("EmpleadoTyperId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int?>("ManwhaId")
                         .HasColumnType("int");
@@ -131,9 +83,6 @@ namespace ScanBackend.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Descuento")
-                        .HasColumnType("decimal(65,30)");
-
                     b.Property<int>("DonadorId")
                         .HasColumnType("int");
 
@@ -159,30 +108,27 @@ namespace ScanBackend.Migrations
                         new
                         {
                             Id = 1,
-                            Descuento = 5m,
                             DonadorId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 11, 25, 11, 10, 21, 277, DateTimeKind.Local).AddTicks(6903),
+                            Fecha = new DateTime(2024, 12, 11, 11, 13, 23, 251, DateTimeKind.Local).AddTicks(1783),
                             FormaPago = 3,
                             Total = 3000m
                         },
                         new
                         {
                             Id = 2,
-                            Descuento = 10m,
                             DonadorId = 2,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 11, 25, 11, 10, 21, 277, DateTimeKind.Local).AddTicks(6924),
+                            Fecha = new DateTime(2024, 12, 11, 11, 13, 23, 251, DateTimeKind.Local).AddTicks(1803),
                             FormaPago = 0,
                             Total = 5000m
                         },
                         new
                         {
                             Id = 3,
-                            Descuento = 21m,
                             DonadorId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 11, 25, 11, 10, 21, 277, DateTimeKind.Local).AddTicks(6926),
+                            Fecha = new DateTime(2024, 12, 11, 11, 13, 23, 251, DateTimeKind.Local).AddTicks(1805),
                             FormaPago = 1,
                             Total = 8000m
                         });
@@ -376,6 +322,9 @@ namespace ScanBackend.Migrations
                     b.Property<bool>("Eliminado")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<bool>("Favoritos")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("ImagenUrl")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -401,6 +350,7 @@ namespace ScanBackend.Migrations
                             Id = 1,
                             Capitulos = 528m,
                             Eliminado = false,
+                            Favoritos = true,
                             ImagenUrl = "https://i.pinimg.com/564x/bb/3c/f7/bb3cf78908440b3b06898fb0fd9935da.jpg",
                             Nombre = "Lookism",
                             Popular = false,
@@ -411,6 +361,7 @@ namespace ScanBackend.Migrations
                             Id = 2,
                             Capitulos = 165m,
                             Eliminado = false,
+                            Favoritos = false,
                             ImagenUrl = "https://i.pinimg.com/564x/43/cf/63/43cf6368ec1b14bf4b069601fbdfbdff.jpg",
                             Nombre = "Manager Kim",
                             Popular = false,
@@ -421,6 +372,7 @@ namespace ScanBackend.Migrations
                             Id = 3,
                             Capitulos = 163m,
                             Eliminado = false,
+                            Favoritos = false,
                             ImagenUrl = "https://i.pinimg.com/564x/18/7c/41/187c410a2f4d705ed87bc881843a35cf.jpg",
                             Nombre = "Quest Supremacy",
                             Popular = false,
@@ -431,6 +383,7 @@ namespace ScanBackend.Migrations
                             Id = 4,
                             Capitulos = 141m,
                             Eliminado = false,
+                            Favoritos = false,
                             ImagenUrl = "https://static.wikia.nocookie.net/vsbattles/images/b/b4/Dowan-reality-quest.jpg",
                             Nombre = "Reality Quest",
                             Popular = true,
@@ -441,50 +394,11 @@ namespace ScanBackend.Migrations
                             Id = 5,
                             Capitulos = 68m,
                             Eliminado = false,
+                            Favoritos = false,
                             ImagenUrl = "https://i.pinimg.com/originals/d9/3b/1c/d93b1c5bd932f0d22fdea2a7960053b7.jpg",
                             Nombre = "Killer Pietro",
                             Popular = true,
                             Sinopsis = "Luego de consagrar su vida a la organización criminal El Club de la Gloria, Pietro abandona su carrera de sicario legendario para pasar sus últimos días a cargo de una tienda de libros de segunda. Motivados por la amenaza que supone, la organización aprovecha su edad para eliminarlo. Pero al borde de la muerte, un golpe de suerte le permite regresar a sus años mozos y recuperar la fuerza que perdió con el tiempo. Ahora que está en óptimas condiciones, Pietro se vengará de la organización que lo traicionó."
-                        });
-                });
-
-            modelBuilder.Entity("ScanServices.Models.Origen", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("Eliminado")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Origenes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Eliminado = false,
-                            Nombre = "Coreano"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Eliminado = false,
-                            Nombre = "Chino"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Eliminado = false,
-                            Nombre = "Japones"
                         });
                 });
 
@@ -556,17 +470,6 @@ namespace ScanBackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ScanServices.Models.DetallesDonacion", b =>
-                {
-                    b.HasOne("ScanServices.Models.Donacion", "Donacion")
-                        .WithMany("DetallesDonacion")
-                        .HasForeignKey("DonacionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Donacion");
-                });
-
             modelBuilder.Entity("ScanServices.Models.DetallesTraduccion", b =>
                 {
                     b.HasOne("ScanServices.Models.Empleado", "EmpleadoCleaner")
@@ -609,11 +512,6 @@ namespace ScanBackend.Migrations
                         .IsRequired();
 
                     b.Navigation("Donador");
-                });
-
-            modelBuilder.Entity("ScanServices.Models.Donacion", b =>
-                {
-                    b.Navigation("DetallesDonacion");
                 });
 #pragma warning restore 612, 618
         }

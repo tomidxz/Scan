@@ -79,7 +79,6 @@ namespace ScanDesktop.Views
                 dataGridTraducciones.Columns["ManwhasId"].Visible = false;
                 dataGridTraducciones.Columns["ManwhaId"].Visible = false;
                 dataGridTraducciones.Columns["EmpleadoEncargado"].Visible = false;
-                dataGridTraducciones.Columns["CompraId"].Visible = false;
                 dataGridTraducciones.Columns["Eliminado"].Visible = false;
                 #endregion
             }

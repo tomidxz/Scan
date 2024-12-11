@@ -47,5 +47,11 @@ namespace ScanDesktop
             SolicitudesView solicitudesView = new SolicitudesView();
             solicitudesView.Show();
         }
+
+        private void iconMenuAgregarDonacion_Click(object sender, EventArgs e)
+        {
+            DonacionView donacionView = new DonacionView();
+            donacionView.Show();
+        }
     }
 }

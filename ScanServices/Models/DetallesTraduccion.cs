@@ -18,8 +18,6 @@ public partial class DetallesTraduccion
     public Empleado? EmpleadoTyper { get; set; }
     public Empleado? EmpleadoCleaner { get; set; }
 
-    public int CompraId { get; set; }
-
     public virtual Manwha? Manwha { get; set; }
 
     public decimal CapituloTraducido { get; set; }

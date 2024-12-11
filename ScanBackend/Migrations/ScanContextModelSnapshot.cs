@@ -33,9 +33,6 @@ namespace ScanBackend.Migrations
                     b.Property<decimal>("CapituloTraducido")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<int>("CompraId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Eliminado")
                         .HasColumnType("tinyint(1)");
 
@@ -110,7 +107,7 @@ namespace ScanBackend.Migrations
                             Id = 1,
                             DonadorId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 12, 1, 15, 41, 58, 710, DateTimeKind.Local).AddTicks(9074),
+                            Fecha = new DateTime(2024, 12, 11, 11, 13, 23, 251, DateTimeKind.Local).AddTicks(1783),
                             FormaPago = 3,
                             Total = 3000m
                         },
@@ -119,7 +116,7 @@ namespace ScanBackend.Migrations
                             Id = 2,
                             DonadorId = 2,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 12, 1, 15, 41, 58, 710, DateTimeKind.Local).AddTicks(9092),
+                            Fecha = new DateTime(2024, 12, 11, 11, 13, 23, 251, DateTimeKind.Local).AddTicks(1803),
                             FormaPago = 0,
                             Total = 5000m
                         },
@@ -128,7 +125,7 @@ namespace ScanBackend.Migrations
                             Id = 3,
                             DonadorId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 12, 1, 15, 41, 58, 710, DateTimeKind.Local).AddTicks(9094),
+                            Fecha = new DateTime(2024, 12, 11, 11, 13, 23, 251, DateTimeKind.Local).AddTicks(1805),
                             FormaPago = 1,
                             Total = 8000m
                         });

@@ -40,6 +40,7 @@
             btnDetallesTraducIcon = new FontAwesome.Sharp.IconMenuItem();
             btnTraduccionIcon = new FontAwesome.Sharp.IconMenuItem();
             IconBtnEmpleados = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuAgregarDonacion = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             btnListaIcon.IconColor = Color.Black;
             btnListaIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnListaIcon.Name = "btnListaIcon";
-            btnListaIcon.Size = new Size(224, 26);
+            btnListaIcon.Size = new Size(191, 26);
             btnListaIcon.Text = "Listado";
             // 
             // btnAgregarEditarIcon
@@ -88,7 +89,7 @@
             btnAgregarEditarIcon.IconColor = Color.Black;
             btnAgregarEditarIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregarEditarIcon.Name = "btnAgregarEditarIcon";
-            btnAgregarEditarIcon.Size = new Size(224, 26);
+            btnAgregarEditarIcon.Size = new Size(191, 26);
             btnAgregarEditarIcon.Text = "Agregar/Editar";
             btnAgregarEditarIcon.Click += btnAgregarEditarIcon_Click;
             // 
@@ -98,13 +99,13 @@
             iconMenuSolicitudes.IconColor = Color.Black;
             iconMenuSolicitudes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconMenuSolicitudes.Name = "iconMenuSolicitudes";
-            iconMenuSolicitudes.Size = new Size(224, 26);
+            iconMenuSolicitudes.Size = new Size(191, 26);
             iconMenuSolicitudes.Text = "Solicitudes";
             iconMenuSolicitudes.Click += iconMenuSolicitudes_Click;
             // 
             // btnDonaciones
             // 
-            btnDonaciones.DropDownItems.AddRange(new ToolStripItem[] { iconMenuDonador });
+            btnDonaciones.DropDownItems.AddRange(new ToolStripItem[] { iconMenuDonador, iconMenuAgregarDonacion });
             btnDonaciones.IconChar = FontAwesome.Sharp.IconChar.MoneyBill1Wave;
             btnDonaciones.IconColor = Color.Black;
             btnDonaciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -163,6 +164,16 @@
             IconBtnEmpleados.Text = "Empleados";
             IconBtnEmpleados.Click += IconBtnEmpleados_Click;
             // 
+            // iconMenuAgregarDonacion
+            // 
+            iconMenuAgregarDonacion.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconMenuAgregarDonacion.IconColor = Color.Black;
+            iconMenuAgregarDonacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuAgregarDonacion.Name = "iconMenuAgregarDonacion";
+            iconMenuAgregarDonacion.Size = new Size(224, 26);
+            iconMenuAgregarDonacion.Text = "Agregar Donacion";
+            iconMenuAgregarDonacion.Click += iconMenuAgregarDonacion_Click;
+            // 
             // MenuInicialView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -194,5 +205,6 @@
         private FontAwesome.Sharp.IconMenuItem IconBtnEmpleados;
         private FontAwesome.Sharp.IconMenuItem iconMenuDonador;
         private FontAwesome.Sharp.IconMenuItem iconMenuSolicitudes;
+        private FontAwesome.Sharp.IconMenuItem iconMenuAgregarDonacion;
     }
 }
