@@ -21,11 +21,12 @@ namespace ScanServices.Services
         {
             this.client = new HttpClient();
             this.options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
-
+            var remoto = Properties.Resources.Remoto;
             string urlApi = Properties.Resources.UrlApi;
-
-            if (Properties.Resources.Remoto == "false")
+            if (remoto == "false")
+            {
                 urlApi = Properties.Resources.UrlApiLocal;
+            }
 
             this._endpoint = urlApi + ApiEndpoints.GetEndpoint(typeof(T).Name);
         }

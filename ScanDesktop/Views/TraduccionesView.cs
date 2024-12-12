@@ -76,9 +76,8 @@ namespace ScanDesktop.Views
                 numericCapitulo.Value = 0;
                 dataGridTraducciones.DataSource = traduccions.ToList();
                 #region Ajuste de columnas
-                dataGridTraducciones.Columns["ManwhasId"].Visible = false;
                 dataGridTraducciones.Columns["ManwhaId"].Visible = false;
-                dataGridTraducciones.Columns["EmpleadoEncargado"].Visible = false;
+                dataGridTraducciones.Columns["EmpleadoEncargadoId"].Visible = false;
                 dataGridTraducciones.Columns["Eliminado"].Visible = false;
                 #endregion
             }
@@ -123,7 +122,7 @@ namespace ScanDesktop.Views
             detallesTraduccion.Fecha = DateTime.Now;
             var nuevatraduccion = await traduccionService.AddAsync(detallesTraduccion);
             var reporteTraduccion = new TraduccionReportView(nuevatraduccion);
-
+            reporteTraduccion.ShowDialog();
 
         }
     }
