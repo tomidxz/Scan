@@ -88,11 +88,11 @@ namespace ScanDesktop.Views
         {
             var traduccion = new DetallesTraduccion
             {
-                Manwha = (Manwha)comboManwhas.SelectedItem,
-                EmpleadoCleaner = (Empleado)comboCleaner.SelectedItem,
-                EmpleadoTraductor = (Empleado)comboTraductor.SelectedItem,
-                EmpleadoTyper = (Empleado)comboTyper.SelectedItem,
-                CapituloTraducido = (int)numericCapitulo.Value,
+                ManwhaId = (int)comboManwhas.SelectedValue,
+                EmpleadoCleanerId = (int)comboCleaner.SelectedValue,
+                EmpleadoTraductorId = (int)comboTraductor.SelectedValue,
+                EmpleadoTyperId = (int)comboTyper.SelectedValue,
+                CapituloTraducido = (decimal)numericCapitulo.Value,
                 Fecha = DateTime.Now
             };
             traduccions.Add(traduccion);
@@ -115,11 +115,11 @@ namespace ScanDesktop.Views
 
         private async void iconBtnFinalizar_Click(object sender, EventArgs e)
         {
-            detallesTraduccion.Manwha = (Manwha)comboManwhas.SelectedItem;
-            detallesTraduccion.EmpleadoCleaner = (Empleado)comboCleaner.SelectedItem;
-            detallesTraduccion.EmpleadoTraductor = (Empleado)comboTraductor.SelectedItem;
-            detallesTraduccion.EmpleadoTyper = (Empleado)comboTyper.SelectedItem;
-            detallesTraduccion.CapituloTraducido = (int)numericCapitulo.Value;
+            detallesTraduccion.ManwhaId = (int)comboManwhas.SelectedValue;
+            detallesTraduccion.EmpleadoCleanerId = (int)comboCleaner.SelectedValue;
+            detallesTraduccion.EmpleadoTraductorId = (int)comboTraductor.SelectedValue;
+            detallesTraduccion.EmpleadoTyperId = (int)comboTyper.SelectedValue;
+            detallesTraduccion.CapituloTraducido = (decimal)numericCapitulo.Value;
             detallesTraduccion.Fecha = DateTime.Now;
             var nuevatraduccion = await traduccionService.AddAsync(detallesTraduccion);
             var reporteTraduccion = new TraduccionReportView(nuevatraduccion);

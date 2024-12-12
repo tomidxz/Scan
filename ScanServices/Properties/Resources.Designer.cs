@@ -61,7 +61,7 @@ namespace ScanServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a false.
+        ///   Busca una cadena traducida similar a true.
         /// </summary>
         internal static string Remoto {
             get {
@@ -70,7 +70,7 @@ namespace ScanServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a a.
+        ///   Busca una cadena traducida similar a https://datascan-h9b9arceayavc8gy.brazilsouth-01.azurewebsites.net/api/.
         /// </summary>
         internal static string UrlApi {
             get {
