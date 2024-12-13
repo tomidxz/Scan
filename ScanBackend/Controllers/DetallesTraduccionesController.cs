@@ -25,14 +25,20 @@ namespace ScanBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DetallesTraduccion>>> GetDetallesTraducciones()
         {
-            return await _context.DetallesTraducciones.ToListAsync();
+            return await _context.DetallesTraducciones.Include(d=>d.EmpleadoEncargado)
+                .Include(d=>d.EmpleadoTyper)
+                .Include(d=>d.EmpleadoTraductor)
+                .Include(d=>d.Manwha).ToListAsync();
         }
 
         // GET: api/DetallesTraducciones/5
         [HttpGet("{id}")]
         public async Task<ActionResult<DetallesTraduccion>> GetDetallesTraduccion(int id)
         {
-            var detallesTraduccion = await _context.DetallesTraducciones.FindAsync(id);
+            var detallesTraduccion = await _context.DetallesTraducciones.Include(d => d.EmpleadoEncargado)
+                .Include(d => d.EmpleadoTyper)
+                .Include(d => d.EmpleadoTraductor)
+                .Include(d => d.Manwha).FirstOrDefaultAsync(d=>d.Id==id);
 
             if (detallesTraduccion == null)
             {
@@ -78,6 +84,9 @@ namespace ScanBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<DetallesTraduccion>> PostDetallesTraduccion(DetallesTraduccion detallesTraduccion)
         {
+            _context.Attach(detallesTraduccion.EmpleadoEncargado);
+            _context.Attach(detallesTraduccion.EmpleadoTyper);
+            _context.Attach(detallesTraduccion.EmpleadoTraductor);
             _context.DetallesTraducciones.Add(detallesTraduccion);
             await _context.SaveChangesAsync();
 

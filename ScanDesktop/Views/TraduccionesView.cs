@@ -89,8 +89,11 @@ namespace ScanDesktop.Views
             {
                 ManwhaId = (int)comboManwhas.SelectedValue,
                 EmpleadoCleanerId = (int)comboCleaner.SelectedValue,
+                EmpleadoCleaner = (Empleado)comboCleaner.SelectedItem,
                 EmpleadoTraductorId = (int)comboTraductor.SelectedValue,
+                EmpleadoTraductor = (Empleado)comboTraductor.SelectedItem,
                 EmpleadoTyperId = (int)comboTyper.SelectedValue,
+                EmpleadoTyper = (Empleado)comboTyper.SelectedItem,
                 CapituloTraducido = (decimal)numericCapitulo.Value,
                 Fecha = DateTime.Now
             };
@@ -116,8 +119,11 @@ namespace ScanDesktop.Views
         {
             detallesTraduccion.ManwhaId = (int)comboManwhas.SelectedValue;
             detallesTraduccion.EmpleadoCleanerId = (int)comboCleaner.SelectedValue;
+            detallesTraduccion.EmpleadoCleaner = (Empleado)comboCleaner.SelectedItem;
             detallesTraduccion.EmpleadoTraductorId = (int)comboTraductor.SelectedValue;
+            detallesTraduccion.EmpleadoTraductor = (Empleado)comboTraductor.SelectedItem;
             detallesTraduccion.EmpleadoTyperId = (int)comboTyper.SelectedValue;
+            detallesTraduccion.EmpleadoTyper = (Empleado)comboTyper.SelectedItem;
             detallesTraduccion.CapituloTraducido = (decimal)numericCapitulo.Value;
             detallesTraduccion.Fecha = DateTime.Now;
             var nuevatraduccion = await traduccionService.AddAsync(detallesTraduccion);
