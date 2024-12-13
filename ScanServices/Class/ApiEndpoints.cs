@@ -12,7 +12,7 @@ namespace ScanServices.Class
         public static string Donador { get; set; } = "donadores";
         public static string Donacion { get; set; } = "donaciones";
         public static string DetallesDonacion { get; set; } = "detallesdonaciones";
-        public static string DetallesTraduccion { get; set; } = "detallesraducciones";
+        public static string DetallesTraduccion { get; set; } = "detallestraducciones";
         public static string Origen { get; set; } = "origenes";
         public static string Manwha { get; set; } = "manwhas";
         public static string Empleado { get; set; } = "empleados";

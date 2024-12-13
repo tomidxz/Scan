@@ -70,7 +70,7 @@ namespace ScanServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a a.
+        ///   Busca una cadena traducida similar a https://datascan-h9b9arceayavc8gy.brazilsouth-01.azurewebsites.net/api/.
         /// </summary>
         internal static string UrlApi {
             get {
@@ -79,7 +79,7 @@ namespace ScanServices.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a https://localhost:7100/api/.
+        ///   Busca una cadena traducida similar a http://localhost:5230/api/.
         /// </summary>
         internal static string UrlApiLocal {
             get {
