@@ -1,4 +1,5 @@
-﻿using ScanServices.Enums;
+﻿using ScanDesktop.ViewsReport;
+using ScanServices.Enums;
 using ScanServices.Interfaces;
 using ScanServices.Models;
 using ScanServices.Services;
@@ -20,6 +21,8 @@ namespace ScanDesktop.Views
         IGenericService<Donacion> donacionService = new GenericService<Donacion>();
         IGenericService<Empleado> empleadoService = new GenericService<Empleado>();
 
+        BindingSource listaDonacion = new BindingSource();
+        List<Donacion> donacions = new List<Donacion>();
         Donacion donacion = new Donacion();
 
         public DonacionView()
@@ -53,28 +56,12 @@ namespace ScanDesktop.Views
             comboMetodoPago.DataSource = Enum.GetValues(typeof(FormaDePagoEnum));
 
             #endregion
-
-            numericTotal.Value = 0;
+            {
+                numericTotal.Value = 0;
+                dataGridDonaciones.DataSource = donacions.ToList();
+            }
 
             // Cargar y transformar las donaciones para mostrar el nombre del donador
-            await CargarDonaciones();
-        }
-
-        private async Task CargarDonaciones()
-        {
-            var donaciones = await donacionService.GetAllAsync();
-            var donadores = await donadorService.GetAllAsync();
-
-            // Crear una lista con datos transformados
-            var datos = donaciones.Select(d => new
-            {
-                Fecha = d.Fecha,
-                Donador = donadores.FirstOrDefault(don => don.Id == d.DonadorId)?.Nombre ?? "Desconocido",
-                FormaDePago = d.FormaPago.ToString(),
-                Total = d.Total
-            }).ToList();
-
-            dataGridDonaciones.DataSource = datos;
         }
 
         private async void btnAgregarDonacion_Click(object sender, EventArgs e)
@@ -88,53 +75,33 @@ namespace ScanDesktop.Views
                 Total = numericTotal.Value,
             };
 
-            // Agregar la donación al servicio
-            await donacionService.AddAsync(nuevaDonacion);
-
-            // Refrescar los datos del DataGridView
-            await CargarDonaciones();
-
+            donacions.Add(nuevaDonacion);
+            dataGridDonaciones.DataSource = donacions.ToList();
             // Resetear los valores del formulario
-            numericTotal.Value = 0;
-            comboDonador.SelectedIndex = -1;
-            comboMetodoPago.SelectedIndex = -1;
         }
 
         private async void btnFinalizarDonacion_Click(object sender, EventArgs e)
         {
-            // Validar que los datos requeridos estén completos
-            if (comboDonador.SelectedIndex == -1 || comboMetodoPago.SelectedIndex == -1 || numericTotal.Value <= 0)
-            {
-                MessageBox.Show("Por favor, complete todos los campos antes de finalizar la donación.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Crear la donación con los datos del formulario
-            var nuevaDonacion = new Donacion
-            {
-                DonadorId = (int)comboDonador.SelectedValue,
-                Fecha = dateTimeFecha.Value,
-                FormaPago = (FormaDePagoEnum)comboMetodoPago.SelectedValue,
-                Total = numericTotal.Value
-            };
+            donacion.Fecha = DateTime.Now;
+            donacion.DonadorId = (int)comboDonador.SelectedValue;
+            donacion.FormaPago = (FormaDePagoEnum)comboMetodoPago.SelectedValue;
+            donacion.Total = numericTotal.Value;
+            donacion.EmpleadoId = (int)comboEmpleado.SelectedValue;
 
             // Guardar la donación utilizando el servicio
-            var donacionGuardada = await donacionService.AddAsync(nuevaDonacion);
+            var donacionGuardada = await donacionService.AddAsync(donacion);
 
-            // Mostrar mensaje de éxito
-            MessageBox.Show("La donación se ha registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Actualizar el TotalDonado del donador seleccionado
+            //var donadorSeleccionado = await donadorService.GetByIdAsync(donacion.DonadorId);
+            //if (donadorSeleccionado != null)
+            //{
+            //    donadorSeleccionado.TotalDonado += donacion.Total;
+            //    await donadorService.UpdateAsync(donadorSeleccionado);
+            //}
 
-            // (Opcional) Mostrar un reporte o vista de confirmación
-            // var reporteDonacion = new ReporteDonacionView(donacionGuardada);
-            // reporteDonacion.ShowDialog();
-
-            // Limpiar el formulario para nuevas entradas
-            comboDonador.SelectedIndex = -1;
-            comboMetodoPago.SelectedIndex = -1;
-            numericTotal.Value = 0;
-
-            // Refrescar los datos en el DataGridView
-            await CargarDonaciones();
+            //Mostrar un reporte o vista de confirmación
+            var reporteDonacion = new DonacionReportView(donacionGuardada);
+            reporteDonacion.ShowDialog();
         }
     }
 }

@@ -34,7 +34,8 @@ namespace ScanDesktop.ViewsReport
 
         private void TraduccionReportView_Load(object sender, EventArgs e)
         {
-            reporte.LocalReport.ReportEmbeddedResource = "ScanDesktop.Reports.DetallesTraduccionReport.rdlc";
+            reporte.LocalReport.ReportEmbeddedResource = "ScanDesktop.Report.DetallesTraduccionReport.rdlc";
+            //reporte.LocalReport.ReportPath = @"C:\INS2024\TPSCAN\ScanEmpresa\ScanDesktop\Reports\DetallesTraduccionReport.rdlc";
             List<object> detallesTraduccion = new List<object> { new {Id=nuevatraduccion.Id,Manwha=nuevatraduccion.Manwha,EmpleadoTraductor=nuevatraduccion.EmpleadoTraductor,
             EmpleadoTyper=nuevatraduccion.EmpleadoTyper, EmpleadoCleaner=nuevatraduccion.EmpleadoCleaner,CapituloTraducido=nuevatraduccion.CapituloTraducido, Fecha=nuevatraduccion.Fecha} };
 

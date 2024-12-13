@@ -127,6 +127,7 @@
             // numericTotal
             // 
             numericTotal.Location = new Point(434, 22);
+            numericTotal.Maximum = new decimal(new int[] { 1569325055, 23283064, 0, 0 });
             numericTotal.Name = "numericTotal";
             numericTotal.Size = new Size(150, 27);
             numericTotal.TabIndex = 8;
