@@ -38,7 +38,7 @@ namespace ScanDesktop.ViewsReport
         private void DonacionReportView_Load(object sender, EventArgs e)
         {
             reporte.LocalReport.ReportEmbeddedResource = "ScanDesktop.Report.DonacionReport.rdlc";
-            List<object> donaciones = new List<object> { new { Id = nuevadonacion.Id, Fecha = nuevadonacion.Fecha, Donador = nuevadonacion.Donador, FormaPago = nuevadonacion.FormaPago, Total = nuevadonacion.Total } };
+            List<object> donaciones = new List<object> { new { Id = nuevadonacion.Id, Fecha = nuevadonacion.Fecha, Donador = nuevadonacion.Donador.Nombre, FormaPago = nuevadonacion.FormaPago, Total = nuevadonacion.Total, Empleado=nuevadonacion.Empleado.Nombre } };
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSDonacion", donaciones));
             reporte.SetDisplayMode(DisplayMode.PrintLayout);
             reporte.RefreshReport();

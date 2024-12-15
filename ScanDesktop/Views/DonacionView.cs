@@ -70,9 +70,12 @@ namespace ScanDesktop.Views
             var nuevaDonacion = new Donacion
             {
                 DonadorId = (int)comboDonador.SelectedValue,
-                Fecha = dateTimeFecha.Value,
+                Donador = (Donador)comboDonador.SelectedItem,
+                EmpleadoId = (int)comboEmpleado.SelectedValue,
+                Empleado = (Empleado)comboEmpleado.SelectedItem,
+                Fecha = DateTime.Now,
                 FormaPago = (FormaDePagoEnum)comboMetodoPago.SelectedValue,
-                Total = numericTotal.Value,
+                Total = (decimal)numericTotal.Value,
             };
 
             donacions.Add(nuevaDonacion);
@@ -80,27 +83,20 @@ namespace ScanDesktop.Views
             // Resetear los valores del formulario
         }
 
-        private async void btnFinalizarDonacion_Click(object sender, EventArgs e)
+
+        private async void btnFinalizarDonacion_Click_1(object sender, EventArgs e)
         {
-            donacion.Fecha = DateTime.Now;
             donacion.DonadorId = (int)comboDonador.SelectedValue;
+            donacion.Donador = (Donador)comboDonador.SelectedItem;
+            donacion.EmpleadoId = (int)comboEmpleado.SelectedValue;
+            donacion.Empleado = (Empleado)comboEmpleado.SelectedItem;
             donacion.FormaPago = (FormaDePagoEnum)comboMetodoPago.SelectedValue;
             donacion.Total = numericTotal.Value;
-            donacion.EmpleadoId = (int)comboEmpleado.SelectedValue;
+            donacion.Fecha = DateTime.Now;
 
-            // Guardar la donación utilizando el servicio
-            var donacionGuardada = await donacionService.AddAsync(donacion);
+            var nuevadonacion = await donacionService.AddAsync(donacion);
 
-            // Actualizar el TotalDonado del donador seleccionado
-            //var donadorSeleccionado = await donadorService.GetByIdAsync(donacion.DonadorId);
-            //if (donadorSeleccionado != null)
-            //{
-            //    donadorSeleccionado.TotalDonado += donacion.Total;
-            //    await donadorService.UpdateAsync(donadorSeleccionado);
-            //}
-
-            //Mostrar un reporte o vista de confirmación
-            var reporteDonacion = new DonacionReportView(donacionGuardada);
+            var reporteDonacion = new DonacionReportView(nuevadonacion);
             reporteDonacion.ShowDialog();
         }
     }

@@ -193,6 +193,7 @@
             btnFinalizarDonacion.TabIndex = 10;
             btnFinalizarDonacion.Text = "Finalizar";
             btnFinalizarDonacion.UseVisualStyleBackColor = true;
+            btnFinalizarDonacion.Click += btnFinalizarDonacion_Click_1;
             // 
             // DonacionView
             // 

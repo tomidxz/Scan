@@ -25,14 +25,16 @@ namespace ScanBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Donacion>>> GetDonaciones()
         {
-            return await _context.Donaciones.ToListAsync();
+            return await _context.Donaciones.Include(d => d.Donador)
+                .Include(d => d.Empleado).ToListAsync();
         }
 
         // GET: api/Donaciones/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Donacion>> GetDonacion(int id)
         {
-            var donacion = await _context.Donaciones.FindAsync(id);
+            var donacion = await _context.Donaciones.Include(d => d.Donador)
+                .Include(d => d.Empleado).FirstOrDefaultAsync(d => d.Id == id);
 
             if (donacion == null)
             {
