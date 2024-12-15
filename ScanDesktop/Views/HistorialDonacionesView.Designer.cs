@@ -40,7 +40,7 @@
             checkBoxFiltro = new CheckBox();
             numericTotal = new NumericUpDown();
             label4 = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            iconBtnImprimirTodo = new FontAwesome.Sharp.IconButton();
             iconBtnImprimir = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridDonacionesH).BeginInit();
@@ -172,18 +172,18 @@
             label4.TabIndex = 5;
             label4.Text = "Total:";
             // 
-            // iconButton1
+            // iconBtnImprimirTodo
             // 
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(655, 414);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(159, 41);
-            iconButton1.TabIndex = 6;
-            iconButton1.Text = "Imprimir todo";
-            iconButton1.UseVisualStyleBackColor = true;
-            iconButton1.Click += iconButton1_Click;
+            iconBtnImprimirTodo.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconBtnImprimirTodo.IconColor = Color.Black;
+            iconBtnImprimirTodo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconBtnImprimirTodo.Location = new Point(655, 414);
+            iconBtnImprimirTodo.Name = "iconBtnImprimirTodo";
+            iconBtnImprimirTodo.Size = new Size(159, 41);
+            iconBtnImprimirTodo.TabIndex = 6;
+            iconBtnImprimirTodo.Text = "Imprimir todo";
+            iconBtnImprimirTodo.UseVisualStyleBackColor = true;
+            iconBtnImprimirTodo.Click += iconBtnImprimirTodo_Click;
             // 
             // iconBtnImprimir
             // 
@@ -204,7 +204,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(826, 467);
             Controls.Add(iconBtnImprimir);
-            Controls.Add(iconButton1);
+            Controls.Add(iconBtnImprimirTodo);
             Controls.Add(label4);
             Controls.Add(numericTotal);
             Controls.Add(checkBoxFiltro);
@@ -237,7 +237,7 @@
         private FontAwesome.Sharp.IconButton iconFiltrarDataGrid;
         private NumericUpDown numericTotal;
         private Label label4;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconBtnImprimirTodo;
         private FontAwesome.Sharp.IconButton iconBtnImprimir;
     }
 }

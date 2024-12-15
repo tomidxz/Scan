@@ -86,7 +86,7 @@ namespace ScanDesktop.Views
             CalcularTotal();
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void iconBtnImprimirTodo_Click(object sender, EventArgs e)
         {
             var TituloReporte = "Historial de Donaciones";
             var donacionesImprimir = donaciones;
