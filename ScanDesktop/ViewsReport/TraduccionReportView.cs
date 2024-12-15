@@ -36,8 +36,8 @@ namespace ScanDesktop.ViewsReport
         {
             reporte.LocalReport.ReportEmbeddedResource = "ScanDesktop.Report.DetallesTraduccionReport.rdlc";
             //reporte.LocalReport.ReportPath = @"C:\INS2024\TPSCAN\ScanEmpresa\ScanDesktop\Reports\DetallesTraduccionReport.rdlc";
-            List<object> detallesTraduccion = new List<object> { new {Id=nuevatraduccion.Id,Manwha=nuevatraduccion.Manwha,EmpleadoTraductor=nuevatraduccion.EmpleadoTraductor,
-            EmpleadoTyper=nuevatraduccion.EmpleadoTyper, EmpleadoCleaner=nuevatraduccion.EmpleadoCleaner,CapituloTraducido=nuevatraduccion.CapituloTraducido, Fecha=nuevatraduccion.Fecha} };
+            List<object> detallesTraduccion = new List<object> { new {Id=nuevatraduccion.Id,Manwha=nuevatraduccion.Manwha.Nombre,EmpleadoTraductor=nuevatraduccion.EmpleadoTraductor.Nombre,
+            EmpleadoTyper=nuevatraduccion.EmpleadoTyper.Nombre, EmpleadoCleaner=nuevatraduccion.EmpleadoCleaner.Nombre,CapituloTraducido=nuevatraduccion.CapituloTraducido, Fecha=nuevatraduccion.Fecha} };
 
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSDetallesTraduccion", detallesTraduccion));
             reporte.SetDisplayMode(DisplayMode.PrintLayout);

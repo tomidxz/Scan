@@ -84,9 +84,10 @@ namespace ScanBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<DetallesTraduccion>> PostDetallesTraduccion(DetallesTraduccion detallesTraduccion)
         {
-            _context.Attach(detallesTraduccion.EmpleadoEncargado);
+            _context.Attach(detallesTraduccion.EmpleadoCleaner);
             _context.Attach(detallesTraduccion.EmpleadoTyper);
             _context.Attach(detallesTraduccion.EmpleadoTraductor);
+            _context.Attach(detallesTraduccion.Manwha);
             _context.DetallesTraducciones.Add(detallesTraduccion);
             await _context.SaveChangesAsync();
 

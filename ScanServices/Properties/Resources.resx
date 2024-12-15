@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Remoto" xml:space="preserve">
-    <value>true</value>
+    <value>false</value>
   </data>
   <data name="UrlApi" xml:space="preserve">
     <value>https://datascan-h9b9arceayavc8gy.brazilsouth-01.azurewebsites.net/api/</value>
   </data>
   <data name="UrlApiLocal" xml:space="preserve">
-    <value>http://localhost:5230/api/</value>
+    <value>https://localhost:7100/api/</value>
   </data>
 </root>

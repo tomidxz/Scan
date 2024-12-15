@@ -118,6 +118,7 @@ namespace ScanDesktop.Views
         private async void iconBtnFinalizar_Click(object sender, EventArgs e)
         {
             detallesTraduccion.ManwhaId = (int)comboManwhas.SelectedValue;
+            detallesTraduccion.Manwha = (Manwha)comboManwhas.SelectedItem;
             detallesTraduccion.EmpleadoCleanerId = (int)comboCleaner.SelectedValue;
             detallesTraduccion.EmpleadoCleaner = (Empleado)comboCleaner.SelectedItem;
             detallesTraduccion.EmpleadoTraductorId = (int)comboTraductor.SelectedValue;
