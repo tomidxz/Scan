@@ -53,5 +53,11 @@ namespace ScanDesktop
             DonacionView donacionView = new DonacionView();
             donacionView.Show();
         }
+
+        private void iconMenuHistorialD_Click(object sender, EventArgs e)
+        {
+            HistorialDonacionesView historialDonacionesView = new HistorialDonacionesView();
+            historialDonacionesView.Show();
+        }
     }
 }

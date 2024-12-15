@@ -1318,6 +1318,8 @@ namespace ScanDesktop.DataSet {
             
             private global::System.Data.DataColumn columnTotal;
             
+            private global::System.Data.DataColumn columnEmpleado;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DSDonacionDataTable() {
@@ -1395,6 +1397,14 @@ namespace ScanDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EmpleadoColumn {
+                get {
+                    return this.columnEmpleado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1430,14 +1440,15 @@ namespace ScanDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSDonacionRow AddDSDonacionRow(int Id, System.DateTime Fecha, string Donador, string FormaPago, decimal Total) {
+            public DSDonacionRow AddDSDonacionRow(int Id, System.DateTime Fecha, string Donador, string FormaPago, decimal Total, string Empleado) {
                 DSDonacionRow rowDSDonacionRow = ((DSDonacionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         Fecha,
                         Donador,
                         FormaPago,
-                        Total};
+                        Total,
+                        Empleado};
                 rowDSDonacionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDSDonacionRow);
                 return rowDSDonacionRow;
@@ -1465,6 +1476,7 @@ namespace ScanDesktop.DataSet {
                 this.columnDonador = base.Columns["Donador"];
                 this.columnFormaPago = base.Columns["FormaPago"];
                 this.columnTotal = base.Columns["Total"];
+                this.columnEmpleado = base.Columns["Empleado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1480,6 +1492,8 @@ namespace ScanDesktop.DataSet {
                 base.Columns.Add(this.columnFormaPago);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
+                this.columnEmpleado = new global::System.Data.DataColumn("Empleado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmpleado);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2392,6 +2406,22 @@ namespace ScanDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Empleado {
+                get {
+                    try {
+                        return ((string)(this[this.tableDSDonacion.EmpleadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Empleado\' de la tabla \'DSDonacion\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDSDonacion.EmpleadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableDSDonacion.IdColumn);
             }
@@ -2448,6 +2478,18 @@ namespace ScanDesktop.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTotalNull() {
                 this[this.tableDSDonacion.TotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmpleadoNull() {
+                return this.IsNull(this.tableDSDonacion.EmpleadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmpleadoNull() {
+                this[this.tableDSDonacion.EmpleadoColumn] = global::System.Convert.DBNull;
             }
         }
         

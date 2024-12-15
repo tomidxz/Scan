@@ -80,6 +80,8 @@ namespace ScanBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<Donacion>> PostDonacion(Donacion donacion)
         {
+            _context.Attach(donacion.Donador);
+            _context.Attach(donacion.Empleado);
             _context.Donaciones.Add(donacion);
             await _context.SaveChangesAsync();
 

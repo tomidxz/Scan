@@ -10,10 +10,14 @@
 
   <ItemGroup>
     <None Remove="Report\DetallesTraduccionReport.rdlc" />
+    <None Remove="Report\DonacionReport.rdlc" />
+    <None Remove="Report\HistorialDonacionesReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Report\DetallesTraduccionReport.rdlc" />
+    <EmbeddedResource Include="Report\DonacionReport.rdlc" />
+    <EmbeddedResource Include="Report\HistorialDonacionesReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
