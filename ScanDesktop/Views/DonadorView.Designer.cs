@@ -109,6 +109,7 @@
             iconBuscarDonador.TabIndex = 4;
             iconBuscarDonador.Text = "Buscar";
             iconBuscarDonador.UseVisualStyleBackColor = true;
+            iconBuscarDonador.Click += iconBuscarDonador_Click;
             // 
             // iconEliminarDonador
             // 
@@ -217,6 +218,7 @@
             // numericTotalDonado
             // 
             numericTotalDonado.Location = new Point(316, 212);
+            numericTotalDonado.Maximum = new decimal(new int[] { 276447231, 23283, 0, 0 });
             numericTotalDonado.Name = "numericTotalDonado";
             numericTotalDonado.Size = new Size(187, 27);
             numericTotalDonado.TabIndex = 7;

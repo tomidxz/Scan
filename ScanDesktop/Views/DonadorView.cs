@@ -23,6 +23,7 @@ namespace ScanDesktop.Views
         {
             InitializeComponent();
             CargarDatosAGrilla();
+            FiltrarDonadores();
         }
 
         private async Task CargarDatosAGrilla()
@@ -116,15 +117,32 @@ namespace ScanDesktop.Views
                 };
                 await donadorService.AddAsync(donador);
             }
-        }
-
-        private void iconCancelar_Click(object sender, EventArgs e)
-        {
-            txtNombreDonador.Text =string.Empty;
+            await CargarDatosAGrilla();
+            txtNombreDonador.Text = string.Empty;
             txtPaisDonador.Text = string.Empty;
             txtTelefonoDonador.Text = string.Empty;
             numericTotalDonado.Value = 0;
             tabDonadores.SelectedTab = tabListaDonadores;
+        }
+
+        private void iconCancelar_Click(object sender, EventArgs e)
+        {
+            txtNombreDonador.Text = string.Empty;
+            txtPaisDonador.Text = string.Empty;
+            txtTelefonoDonador.Text = string.Empty;
+            numericTotalDonado.Value = 0;
+            tabDonadores.SelectedTab = tabListaDonadores;
+        }
+
+
+        private async void FiltrarDonadores()
+        {
+            var donadoresFiltrados = donadoresFiltrar.Where(d => d.Nombre.ToUpper().Contains(txtBuscarDonador.Text.ToUpper())).ToList();
+            listaDonadores.DataSource = donadoresFiltrados;
+        }
+        private void iconBuscarDonador_Click(object sender, EventArgs e)
+        {
+            FiltrarDonadores();
         }
     }
 }

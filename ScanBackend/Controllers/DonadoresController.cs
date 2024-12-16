@@ -23,8 +23,13 @@ namespace ScanBackend.Controllers
 
         // GET: api/Donadores
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Donador>>> GetDonadores()
+        public async Task<ActionResult<IEnumerable<Donador>>> GetDonadores([FromQuery] string? filtro)
         {
+            if (filtro != null)
+            {
+                return await _context.Donadores.Where(d => d.Nombre.ToUpper().Contains(filtro.ToUpper())).ToListAsync();
+            }
+
             return await _context.Donadores.ToListAsync();
         }
 
@@ -93,8 +98,8 @@ namespace ScanBackend.Controllers
             {
                 return NotFound();
             }
-
-            _context.Donadores.Remove(donador);
+            donador.Eliminado = true;
+            _context.Donadores.Update(donador);
             await _context.SaveChangesAsync();
 
             return NoContent();

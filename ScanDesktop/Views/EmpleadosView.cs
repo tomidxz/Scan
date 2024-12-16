@@ -80,8 +80,6 @@ namespace ScanDesktop.Views
                 empleadoCurrent.FechaNacimiento = dateTimeFecha.Value;
                 empleadoCurrent.PuestoEmpleado = (PuestoEmpleadoEnum)comboPuesto.SelectedItem;
                 empleadoService.UpdateAsync(empleadoCurrent);
-
-                tabEmpleados.SelectedTab = tabListaEmpleados;
             }
             else
             {
