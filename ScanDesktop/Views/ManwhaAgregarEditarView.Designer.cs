@@ -35,7 +35,7 @@
             btnEditarIcon = new FontAwesome.Sharp.IconButton();
             btnAgregarIcon = new FontAwesome.Sharp.IconButton();
             btnBuscarIcon = new FontAwesome.Sharp.IconButton();
-            textBox1 = new TextBox();
+            txtBuscarManwha = new TextBox();
             label1 = new Label();
             dataGridManwhas = new DataGridView();
             tabPageAgregarEditar = new TabPage();
@@ -77,7 +77,7 @@
             tabPageLista.Controls.Add(btnEditarIcon);
             tabPageLista.Controls.Add(btnAgregarIcon);
             tabPageLista.Controls.Add(btnBuscarIcon);
-            tabPageLista.Controls.Add(textBox1);
+            tabPageLista.Controls.Add(txtBuscarManwha);
             tabPageLista.Controls.Add(label1);
             tabPageLista.Controls.Add(dataGridManwhas);
             tabPageLista.Location = new Point(4, 29);
@@ -152,13 +152,14 @@
             btnBuscarIcon.TabIndex = 3;
             btnBuscarIcon.Text = "Buscar";
             btnBuscarIcon.UseVisualStyleBackColor = true;
+            btnBuscarIcon.Click += btnBuscarIcon_Click;
             // 
-            // textBox1
+            // txtBuscarManwha
             // 
-            textBox1.Location = new Point(67, 11);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(423, 27);
-            textBox1.TabIndex = 2;
+            txtBuscarManwha.Location = new Point(67, 11);
+            txtBuscarManwha.Name = "txtBuscarManwha";
+            txtBuscarManwha.Size = new Size(423, 27);
+            txtBuscarManwha.TabIndex = 2;
             // 
             // label1
             // 
@@ -380,7 +381,7 @@
         private TabPage tabPageAgregarEditar;
         private DataGridView dataGridManwhas;
         private FontAwesome.Sharp.IconButton btnBuscarIcon;
-        private TextBox textBox1;
+        private TextBox txtBuscarManwha;
         private Label label1;
         private FontAwesome.Sharp.IconButton btnEliminarIcon;
         private FontAwesome.Sharp.IconButton btnEditarIcon;

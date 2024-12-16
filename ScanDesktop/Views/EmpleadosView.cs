@@ -23,8 +23,10 @@ namespace ScanDesktop.Views
         public EmpleadosView()
         {
             InitializeComponent();
+            dataGridEmpleados.DataSource = listaEmpleados;
             CargarGrilla();
             CargarCombo();
+            FiltrarEmpleados();
         }
 
         private async Task CargarCombo()
@@ -145,6 +147,18 @@ namespace ScanDesktop.Views
                     MessageBox.Show($"Error al eliminar el empleado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+
+        private async void FiltrarEmpleados()
+        {
+            var empleadosFiltrados = empleadosFiltrar.Where(x => x.Nombre.ToUpper().Contains(txtBuscarEmpleado.Text.ToUpper())).ToList();
+            listaEmpleados.DataSource = empleadosFiltrados;
+            dataGridEmpleados.DataSource = listaEmpleados;
+        }
+        private void iconBuscarEmpleado_Click(object sender, EventArgs e)
+        {
+            FiltrarEmpleados();
         }
     }
 }

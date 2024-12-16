@@ -31,7 +31,7 @@
             tabEmpleados = new TabControl();
             tabListaEmpleados = new TabPage();
             iconBuscarEmpleado = new FontAwesome.Sharp.IconButton();
-            textBox1 = new TextBox();
+            txtBuscarEmpleado = new TextBox();
             label1 = new Label();
             iconEliminarEmpleado = new FontAwesome.Sharp.IconButton();
             iconEditarEmpleado = new FontAwesome.Sharp.IconButton();
@@ -69,7 +69,7 @@
             // tabListaEmpleados
             // 
             tabListaEmpleados.Controls.Add(iconBuscarEmpleado);
-            tabListaEmpleados.Controls.Add(textBox1);
+            tabListaEmpleados.Controls.Add(txtBuscarEmpleado);
             tabListaEmpleados.Controls.Add(label1);
             tabListaEmpleados.Controls.Add(iconEliminarEmpleado);
             tabListaEmpleados.Controls.Add(iconEditarEmpleado);
@@ -94,13 +94,14 @@
             iconBuscarEmpleado.TabIndex = 6;
             iconBuscarEmpleado.Text = "Buscar";
             iconBuscarEmpleado.UseVisualStyleBackColor = true;
+            iconBuscarEmpleado.Click += iconBuscarEmpleado_Click;
             // 
-            // textBox1
+            // txtBuscarEmpleado
             // 
-            textBox1.Location = new Point(67, 16);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(517, 27);
-            textBox1.TabIndex = 5;
+            txtBuscarEmpleado.Location = new Point(67, 16);
+            txtBuscarEmpleado.Name = "txtBuscarEmpleado";
+            txtBuscarEmpleado.Size = new Size(517, 27);
+            txtBuscarEmpleado.TabIndex = 5;
             // 
             // label1
             // 
@@ -318,7 +319,7 @@
         private FontAwesome.Sharp.IconButton iconEliminarEmpleado;
         private FontAwesome.Sharp.IconButton iconEditarEmpleado;
         private FontAwesome.Sharp.IconButton iconAgregarEmpleado;
-        private TextBox textBox1;
+        private TextBox txtBuscarEmpleado;
         private Label label1;
         private FontAwesome.Sharp.IconButton iconBuscarEmpleado;
         private Label label3;

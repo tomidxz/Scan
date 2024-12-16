@@ -23,8 +23,13 @@ namespace ScanBackend.Controllers
 
         // GET: api/Manwhas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Manwha>>> GetManwhas()
+        public async Task<ActionResult<IEnumerable<Manwha>>> GetManwhas([FromQuery] string? filtro)
         {
+            if (filtro != null)
+            {
+                return await _context.Manwhas.Where(d => d.Nombre.ToUpper().Contains(filtro.ToUpper())).ToListAsync();
+            }
+
             return await _context.Manwhas.ToListAsync();
         }
 

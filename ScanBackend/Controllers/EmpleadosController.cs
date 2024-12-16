@@ -23,8 +23,13 @@ namespace ScanBackend.Controllers
 
         // GET: api/Empleados
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Empleado>>> GetEmpleados()
+        public async Task<ActionResult<IEnumerable<Empleado>>> GetEmpleados([FromQuery] string? filtro)
         {
+            if (filtro != null)
+            {
+                return await _context.Empleados.Where(d => d.Nombre.ToUpper().Contains(filtro.ToUpper())).ToListAsync();
+            }
+
             return await _context.Empleados.ToListAsync();
         }
 
@@ -93,8 +98,8 @@ namespace ScanBackend.Controllers
             {
                 return NotFound();
             }
-
-            _context.Empleados.Remove(empleado);
+            empleado.Eliminado = true;
+            _context.Empleados.Update(empleado);
             await _context.SaveChangesAsync();
 
             return NoContent();

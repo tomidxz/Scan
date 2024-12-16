@@ -1,4 +1,5 @@
-﻿using ScanServices.Interfaces;
+﻿using Microsoft.VisualBasic.Logging;
+using ScanServices.Interfaces;
 using ScanServices.Models;
 using ScanServices.Services;
 using System;
@@ -28,6 +29,7 @@ namespace ScanDesktop.Views
 
         private async Task CargarDatosAGrilla()
         {
+            listaDonadores.DataSource = await donadorService.GetAllAsync();
             dataGridDonadores.DataSource = await donadorService.GetAllAsync();
             donadoresFiltrar = (List<Donador>)listaDonadores.DataSource;
         }
@@ -137,8 +139,14 @@ namespace ScanDesktop.Views
 
         private async void FiltrarDonadores()
         {
-            var donadoresFiltrados = donadoresFiltrar.Where(d => d.Nombre.ToUpper().Contains(txtBuscarDonador.Text.ToUpper())).ToList();
+            // Filtra los donadores basándote en el texto de búsqueda
+            var donadoresFiltrados = donadoresFiltrar
+            .Where(d => d.Nombre.ToUpper().Contains(txtBuscarDonador.Text.ToUpper()))
+            .ToList();
+
+            // Actualiza el BindingSource y asigna al DataGridView
             listaDonadores.DataSource = donadoresFiltrados;
+            dataGridDonadores.DataSource = listaDonadores;
         }
         private void iconBuscarDonador_Click(object sender, EventArgs e)
         {

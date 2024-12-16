@@ -26,6 +26,7 @@ namespace ScanDesktop.Views
             InitializeComponent();
             dataGridManwhas.DataSource = listaManwhas;
             CargarGrilla();
+            FiltrarManwhas();
         }
 
         private async Task CargarGrilla()
@@ -141,6 +142,19 @@ namespace ScanDesktop.Views
             txtUrl.Text = string.Empty;
             checkBoxPopular.Checked = false;
             tabControlManwha.SelectedTab = tabPageLista;
+        }
+
+
+        private async void FiltrarManwhas()
+        {
+            var manwhasFiltrados = manwhasFiltrar.Where(m => m.Nombre.ToUpper().Contains(txtBuscarManwha.Text.ToUpper())).ToList();
+
+            listaManwhas.DataSource = manwhasFiltrados;
+            dataGridManwhas.DataSource = listaManwhas;
+        }
+        private void btnBuscarIcon_Click(object sender, EventArgs e)
+        {
+            FiltrarManwhas();
         }
     }
 }

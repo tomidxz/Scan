@@ -77,6 +77,10 @@ namespace ScanDesktop.Views
                 dataGridTraducciones.DataSource = traduccions.ToList();
                 #region Ajuste de columnas
                 dataGridTraducciones.Columns["ManwhaId"].Visible = false;
+                dataGridTraducciones.Columns["EmpleadoCleanerId"].Visible = false;
+                dataGridTraducciones.Columns["EmpleadoTraductorId"].Visible = false;
+                dataGridTraducciones.Columns["EmpleadoTyperId"].Visible = false;
+                dataGridTraducciones.Columns["EmpleadoEncargado"].Visible = false;
                 dataGridTraducciones.Columns["EmpleadoEncargadoId"].Visible = false;
                 dataGridTraducciones.Columns["Eliminado"].Visible = false;
                 #endregion
@@ -88,6 +92,7 @@ namespace ScanDesktop.Views
             var traduccion = new DetallesTraduccion
             {
                 ManwhaId = (int)comboManwhas.SelectedValue,
+                Manwha = (Manwha)comboManwhas.SelectedItem,
                 EmpleadoCleanerId = (int)comboCleaner.SelectedValue,
                 EmpleadoCleaner = (Empleado)comboCleaner.SelectedItem,
                 EmpleadoTraductorId = (int)comboTraductor.SelectedValue,
