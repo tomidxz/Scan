@@ -50,7 +50,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaptionText;
+            panel1.BackColor = Color.Indigo;
             panel1.Controls.Add(label1);
             panel1.Location = new Point(1, 0);
             panel1.Name = "panel1";
@@ -60,11 +60,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F);
-            label1.ForeColor = SystemColors.ActiveCaption;
+            label1.BackColor = Color.Indigo;
+            label1.Font = new Font("Segoe UI", 16F);
+            label1.ForeColor = SystemColors.ButtonFace;
             label1.Location = new Point(11, 9);
             label1.Name = "label1";
-            label1.Size = new Size(280, 35);
+            label1.Size = new Size(299, 37);
             label1.TabIndex = 1;
             label1.Text = "Historial de Donaciones";
             // 
@@ -97,15 +98,17 @@
             // 
             // iconFiltrarDataGrid
             // 
+            iconFiltrarDataGrid.BackColor = Color.DarkSlateBlue;
+            iconFiltrarDataGrid.ForeColor = SystemColors.ButtonHighlight;
             iconFiltrarDataGrid.IconChar = FontAwesome.Sharp.IconChar.None;
             iconFiltrarDataGrid.IconColor = Color.Black;
             iconFiltrarDataGrid.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconFiltrarDataGrid.Location = new Point(497, 18);
+            iconFiltrarDataGrid.Location = new Point(484, 18);
             iconFiltrarDataGrid.Name = "iconFiltrarDataGrid";
-            iconFiltrarDataGrid.Size = new Size(94, 29);
+            iconFiltrarDataGrid.Size = new Size(107, 36);
             iconFiltrarDataGrid.TabIndex = 4;
             iconFiltrarDataGrid.Text = "Filtrar";
-            iconFiltrarDataGrid.UseVisualStyleBackColor = true;
+            iconFiltrarDataGrid.UseVisualStyleBackColor = false;
             iconFiltrarDataGrid.Click += iconFiltrarDataGrid_Click;
             // 
             // dateTimeHasta
@@ -119,6 +122,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = SystemColors.ButtonHighlight;
             label3.Location = new Point(274, 23);
             label3.Name = "label3";
             label3.Size = new Size(50, 20);
@@ -128,6 +132,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = SystemColors.ButtonFace;
             label2.Location = new Point(17, 23);
             label2.Name = "label2";
             label2.Size = new Size(54, 20);
@@ -145,6 +150,7 @@
             // checkBoxFiltro
             // 
             checkBoxFiltro.AutoSize = true;
+            checkBoxFiltro.ForeColor = SystemColors.ButtonFace;
             checkBoxFiltro.Location = new Point(43, 99);
             checkBoxFiltro.Name = "checkBoxFiltro";
             checkBoxFiltro.Size = new Size(115, 24);
@@ -166,6 +172,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = SystemColors.ButtonFace;
             label4.Location = new Point(367, 422);
             label4.Name = "label4";
             label4.Size = new Size(45, 20);
@@ -174,6 +181,8 @@
             // 
             // iconBtnImprimirTodo
             // 
+            iconBtnImprimirTodo.BackColor = Color.DarkSlateBlue;
+            iconBtnImprimirTodo.ForeColor = SystemColors.ButtonFace;
             iconBtnImprimirTodo.IconChar = FontAwesome.Sharp.IconChar.None;
             iconBtnImprimirTodo.IconColor = Color.Black;
             iconBtnImprimirTodo.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -182,11 +191,13 @@
             iconBtnImprimirTodo.Size = new Size(159, 41);
             iconBtnImprimirTodo.TabIndex = 6;
             iconBtnImprimirTodo.Text = "Imprimir todo";
-            iconBtnImprimirTodo.UseVisualStyleBackColor = true;
+            iconBtnImprimirTodo.UseVisualStyleBackColor = false;
             iconBtnImprimirTodo.Click += iconBtnImprimirTodo_Click;
             // 
             // iconBtnImprimir
             // 
+            iconBtnImprimir.BackColor = Color.DarkSlateBlue;
+            iconBtnImprimir.ForeColor = SystemColors.ButtonFace;
             iconBtnImprimir.IconChar = FontAwesome.Sharp.IconChar.None;
             iconBtnImprimir.IconColor = Color.Black;
             iconBtnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -195,13 +206,14 @@
             iconBtnImprimir.Size = new Size(138, 38);
             iconBtnImprimir.TabIndex = 7;
             iconBtnImprimir.Text = "Imprimir";
-            iconBtnImprimir.UseVisualStyleBackColor = true;
+            iconBtnImprimir.UseVisualStyleBackColor = false;
             iconBtnImprimir.Click += iconBtnImprimir_Click;
             // 
             // HistorialDonacionesView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.BlueViolet;
             ClientSize = new Size(826, 467);
             Controls.Add(iconBtnImprimir);
             Controls.Add(iconBtnImprimirTodo);
@@ -212,6 +224,7 @@
             Controls.Add(dataGridDonacionesH);
             Controls.Add(panel1);
             Name = "HistorialDonacionesView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HistorialDonacionesView";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

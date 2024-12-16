@@ -43,14 +43,18 @@
             dataGridDonaciones = new DataGridView();
             btnEliminarDonacion = new FontAwesome.Sharp.IconButton();
             btnFinalizarDonacion = new FontAwesome.Sharp.IconButton();
+            panel2 = new Panel();
+            label6 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericTotal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridDonaciones).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonFace;
             label1.Location = new Point(12, 64);
             label1.Name = "label1";
             label1.Size = new Size(71, 20);
@@ -68,7 +72,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(345, 69);
+            label2.ForeColor = SystemColors.ButtonFace;
+            label2.Location = new Point(262, 64);
             label2.Name = "label2";
             label2.Size = new Size(123, 20);
             label2.TabIndex = 2;
@@ -77,7 +82,7 @@
             // comboMetodoPago
             // 
             comboMetodoPago.FormattingEnabled = true;
-            comboMetodoPago.Location = new Point(483, 66);
+            comboMetodoPago.Location = new Point(400, 61);
             comboMetodoPago.Name = "comboMetodoPago";
             comboMetodoPago.Size = new Size(151, 28);
             comboMetodoPago.TabIndex = 3;
@@ -85,7 +90,7 @@
             // dateTimeFecha
             // 
             dateTimeFecha.Format = DateTimePickerFormat.Short;
-            dateTimeFecha.Location = new Point(678, 12);
+            dateTimeFecha.Location = new Point(652, 62);
             dateTimeFecha.Name = "dateTimeFecha";
             dateTimeFecha.Size = new Size(110, 27);
             dateTimeFecha.TabIndex = 4;
@@ -93,7 +98,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(549, 17);
+            label3.ForeColor = SystemColors.ButtonFace;
+            label3.Location = new Point(584, 64);
             label3.Name = "label3";
             label3.Size = new Size(50, 20);
             label3.TabIndex = 5;
@@ -113,15 +119,20 @@
             // 
             // btnAgregarDonacion
             // 
-            btnAgregarDonacion.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnAgregarDonacion.IconColor = Color.Black;
+            btnAgregarDonacion.BackColor = Color.DarkSlateBlue;
+            btnAgregarDonacion.ForeColor = SystemColors.ButtonFace;
+            btnAgregarDonacion.IconChar = FontAwesome.Sharp.IconChar.Add;
+            btnAgregarDonacion.IconColor = Color.Gainsboro;
             btnAgregarDonacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAgregarDonacion.Location = new Point(656, 25);
+            btnAgregarDonacion.IconSize = 38;
+            btnAgregarDonacion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAgregarDonacion.Location = new Point(640, 17);
             btnAgregarDonacion.Name = "btnAgregarDonacion";
-            btnAgregarDonacion.Size = new Size(94, 29);
+            btnAgregarDonacion.Size = new Size(120, 43);
             btnAgregarDonacion.TabIndex = 7;
             btnAgregarDonacion.Text = "Agregar";
-            btnAgregarDonacion.UseVisualStyleBackColor = true;
+            btnAgregarDonacion.TextAlign = ContentAlignment.MiddleRight;
+            btnAgregarDonacion.UseVisualStyleBackColor = false;
             btnAgregarDonacion.Click += btnAgregarDonacion_Click;
             // 
             // numericTotal
@@ -135,6 +146,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.ForeColor = SystemColors.ButtonFace;
             label5.Location = new Point(317, 25);
             label5.Name = "label5";
             label5.Size = new Size(111, 20);
@@ -152,6 +164,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = SystemColors.ButtonFace;
             label4.Location = new Point(3, 25);
             label4.Name = "label4";
             label4.Size = new Size(80, 20);
@@ -172,34 +185,64 @@
             // 
             // btnEliminarDonacion
             // 
-            btnEliminarDonacion.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnEliminarDonacion.IconColor = Color.Black;
+            btnEliminarDonacion.BackColor = Color.DarkSlateBlue;
+            btnEliminarDonacion.ForeColor = SystemColors.ButtonFace;
+            btnEliminarDonacion.IconChar = FontAwesome.Sharp.IconChar.DeleteLeft;
+            btnEliminarDonacion.IconColor = Color.Gainsboro;
             btnEliminarDonacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminarDonacion.Location = new Point(668, 240);
+            btnEliminarDonacion.ImageAlign = ContentAlignment.MiddleRight;
+            btnEliminarDonacion.Location = new Point(652, 243);
             btnEliminarDonacion.Name = "btnEliminarDonacion";
-            btnEliminarDonacion.Size = new Size(94, 29);
+            btnEliminarDonacion.Size = new Size(120, 53);
             btnEliminarDonacion.TabIndex = 9;
             btnEliminarDonacion.Text = "Eliminar";
-            btnEliminarDonacion.UseVisualStyleBackColor = true;
+            btnEliminarDonacion.TextAlign = ContentAlignment.MiddleLeft;
+            btnEliminarDonacion.UseVisualStyleBackColor = false;
             // 
             // btnFinalizarDonacion
             // 
-            btnFinalizarDonacion.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnFinalizarDonacion.IconColor = Color.Black;
+            btnFinalizarDonacion.BackColor = Color.DarkSlateBlue;
+            btnFinalizarDonacion.ForeColor = SystemColors.ButtonFace;
+            btnFinalizarDonacion.IconChar = FontAwesome.Sharp.IconChar.Donate;
+            btnFinalizarDonacion.IconColor = Color.Gainsboro;
             btnFinalizarDonacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnFinalizarDonacion.Location = new Point(668, 344);
+            btnFinalizarDonacion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnFinalizarDonacion.Location = new Point(652, 343);
             btnFinalizarDonacion.Name = "btnFinalizarDonacion";
-            btnFinalizarDonacion.Size = new Size(94, 29);
+            btnFinalizarDonacion.Size = new Size(120, 50);
             btnFinalizarDonacion.TabIndex = 10;
             btnFinalizarDonacion.Text = "Finalizar";
-            btnFinalizarDonacion.UseVisualStyleBackColor = true;
+            btnFinalizarDonacion.TextAlign = ContentAlignment.MiddleRight;
+            btnFinalizarDonacion.UseVisualStyleBackColor = false;
             btnFinalizarDonacion.Click += btnFinalizarDonacion_Click_1;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Indigo;
+            panel2.Controls.Add(label6);
+            panel2.Location = new Point(1, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(798, 55);
+            panel2.TabIndex = 11;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 20F);
+            label6.ForeColor = SystemColors.ButtonFace;
+            label6.Location = new Point(11, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(163, 46);
+            label6.TabIndex = 0;
+            label6.Text = "Donacion";
             // 
             // DonacionView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.BlueViolet;
             ClientSize = new Size(800, 450);
+            Controls.Add(panel2);
             Controls.Add(btnFinalizarDonacion);
             Controls.Add(btnEliminarDonacion);
             Controls.Add(dataGridDonaciones);
@@ -211,11 +254,14 @@
             Controls.Add(comboDonador);
             Controls.Add(label1);
             Name = "DonacionView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DonacionView";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericTotal).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridDonaciones).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -237,5 +283,7 @@
         private DataGridView dataGridDonaciones;
         private FontAwesome.Sharp.IconButton btnEliminarDonacion;
         private FontAwesome.Sharp.IconButton btnFinalizarDonacion;
+        private Panel panel2;
+        private Label label6;
     }
 }

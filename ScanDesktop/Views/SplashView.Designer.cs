@@ -60,7 +60,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "SplashView";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SplashView";
             Activated += SplashView_Activated;
             ResumeLayout(false);

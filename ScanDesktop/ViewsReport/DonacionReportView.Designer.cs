@@ -37,6 +37,7 @@
             ClientSize = new Size(800, 450);
             Name = "DonacionReportView";
             Text = "DonacionReportView";
+            WindowState = FormWindowState.Maximized;
             Load += DonacionReportView_Load;
             ResumeLayout(false);
         }

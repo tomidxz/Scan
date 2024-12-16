@@ -31,118 +31,132 @@
             menuStrip1 = new MenuStrip();
             btnMenuIcon = new FontAwesome.Sharp.IconMenuItem();
             iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
-            btnListaIcon = new FontAwesome.Sharp.IconMenuItem();
             btnAgregarEditarIcon = new FontAwesome.Sharp.IconMenuItem();
             iconMenuSolicitudes = new FontAwesome.Sharp.IconMenuItem();
             btnDonaciones = new FontAwesome.Sharp.IconMenuItem();
             iconMenuDonador = new FontAwesome.Sharp.IconMenuItem();
             iconMenuAgregarDonacion = new FontAwesome.Sharp.IconMenuItem();
+            iconMenuHistorialD = new FontAwesome.Sharp.IconMenuItem();
             iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
             btnDetallesTraducIcon = new FontAwesome.Sharp.IconMenuItem();
             btnTraduccionIcon = new FontAwesome.Sharp.IconMenuItem();
             IconBtnEmpleados = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuHistorialD = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.Indigo;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { btnMenuIcon, iconMenuItem2, btnDonaciones, iconMenuItem4, btnTraduccionIcon, IconBtnEmpleados });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(863, 28);
+            menuStrip1.Size = new Size(863, 31);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.UseWaitCursor = true;
             // 
             // btnMenuIcon
             // 
+            btnMenuIcon.ForeColor = SystemColors.ButtonFace;
             btnMenuIcon.IconChar = FontAwesome.Sharp.IconChar.House;
-            btnMenuIcon.IconColor = Color.Black;
+            btnMenuIcon.IconColor = Color.White;
             btnMenuIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMenuIcon.Name = "btnMenuIcon";
-            btnMenuIcon.Size = new Size(80, 24);
+            btnMenuIcon.Size = new Size(80, 27);
             btnMenuIcon.Text = "Menu";
             // 
             // iconMenuItem2
             // 
-            iconMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { btnListaIcon, btnAgregarEditarIcon, iconMenuSolicitudes });
+            iconMenuItem2.BackColor = Color.Indigo;
+            iconMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { btnAgregarEditarIcon, iconMenuSolicitudes });
+            iconMenuItem2.Font = new Font("Segoe UI", 10F);
+            iconMenuItem2.ForeColor = SystemColors.ButtonFace;
             iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.Book;
-            iconMenuItem2.IconColor = Color.Black;
+            iconMenuItem2.IconColor = Color.White;
             iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconMenuItem2.Name = "iconMenuItem2";
-            iconMenuItem2.Size = new Size(105, 24);
+            iconMenuItem2.Size = new Size(116, 27);
             iconMenuItem2.Text = "Manwhas";
-            // 
-            // btnListaIcon
-            // 
-            btnListaIcon.IconChar = FontAwesome.Sharp.IconChar.BookBookmark;
-            btnListaIcon.IconColor = Color.Black;
-            btnListaIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnListaIcon.Name = "btnListaIcon";
-            btnListaIcon.Size = new Size(191, 26);
-            btnListaIcon.Text = "Listado";
             // 
             // btnAgregarEditarIcon
             // 
+            btnAgregarEditarIcon.BackColor = Color.Lavender;
             btnAgregarEditarIcon.IconChar = FontAwesome.Sharp.IconChar.PenRuler;
             btnAgregarEditarIcon.IconColor = Color.Black;
             btnAgregarEditarIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregarEditarIcon.Name = "btnAgregarEditarIcon";
-            btnAgregarEditarIcon.Size = new Size(191, 26);
+            btnAgregarEditarIcon.Size = new Size(224, 28);
             btnAgregarEditarIcon.Text = "Agregar/Editar";
             btnAgregarEditarIcon.Click += btnAgregarEditarIcon_Click;
             // 
             // iconMenuSolicitudes
             // 
-            iconMenuSolicitudes.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconMenuSolicitudes.BackColor = Color.Lavender;
+            iconMenuSolicitudes.IconChar = FontAwesome.Sharp.IconChar.Receipt;
             iconMenuSolicitudes.IconColor = Color.Black;
             iconMenuSolicitudes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconMenuSolicitudes.Name = "iconMenuSolicitudes";
-            iconMenuSolicitudes.Size = new Size(191, 26);
+            iconMenuSolicitudes.Size = new Size(224, 28);
             iconMenuSolicitudes.Text = "Solicitudes";
             iconMenuSolicitudes.Click += iconMenuSolicitudes_Click;
             // 
             // btnDonaciones
             // 
             btnDonaciones.DropDownItems.AddRange(new ToolStripItem[] { iconMenuDonador, iconMenuAgregarDonacion, iconMenuHistorialD });
+            btnDonaciones.Font = new Font("Segoe UI", 10F);
+            btnDonaciones.ForeColor = SystemColors.ButtonFace;
             btnDonaciones.IconChar = FontAwesome.Sharp.IconChar.MoneyBill1Wave;
-            btnDonaciones.IconColor = Color.Black;
+            btnDonaciones.IconColor = Color.White;
             btnDonaciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDonaciones.Name = "btnDonaciones";
-            btnDonaciones.Size = new Size(121, 24);
+            btnDonaciones.Size = new Size(133, 27);
             btnDonaciones.Text = "Donaciones";
             btnDonaciones.Click += btnDonaciones_Click;
             // 
             // iconMenuDonador
             // 
+            iconMenuDonador.BackColor = Color.Lavender;
             iconMenuDonador.IconChar = FontAwesome.Sharp.IconChar.None;
             iconMenuDonador.IconColor = Color.Black;
             iconMenuDonador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconMenuDonador.Name = "iconMenuDonador";
-            iconMenuDonador.Size = new Size(251, 26);
+            iconMenuDonador.Size = new Size(274, 28);
             iconMenuDonador.Text = "Donadores";
             iconMenuDonador.Click += iconMenuDonador_Click;
             // 
             // iconMenuAgregarDonacion
             // 
+            iconMenuAgregarDonacion.BackColor = Color.Lavender;
             iconMenuAgregarDonacion.IconChar = FontAwesome.Sharp.IconChar.None;
             iconMenuAgregarDonacion.IconColor = Color.Black;
             iconMenuAgregarDonacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconMenuAgregarDonacion.Name = "iconMenuAgregarDonacion";
-            iconMenuAgregarDonacion.Size = new Size(251, 26);
+            iconMenuAgregarDonacion.Size = new Size(274, 28);
             iconMenuAgregarDonacion.Text = "Agregar Donacion";
             iconMenuAgregarDonacion.Click += iconMenuAgregarDonacion_Click;
+            // 
+            // iconMenuHistorialD
+            // 
+            iconMenuHistorialD.BackColor = Color.Lavender;
+            iconMenuHistorialD.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconMenuHistorialD.IconColor = Color.Black;
+            iconMenuHistorialD.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuHistorialD.Name = "iconMenuHistorialD";
+            iconMenuHistorialD.Size = new Size(274, 28);
+            iconMenuHistorialD.Text = "Historial de Donaciones";
+            iconMenuHistorialD.Click += iconMenuHistorialD_Click;
             // 
             // iconMenuItem4
             // 
             iconMenuItem4.DropDownItems.AddRange(new ToolStripItem[] { btnDetallesTraducIcon });
+            iconMenuItem4.Font = new Font("Segoe UI", 10F);
+            iconMenuItem4.ForeColor = SystemColors.ButtonFace;
             iconMenuItem4.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
-            iconMenuItem4.IconColor = Color.Black;
+            iconMenuItem4.IconColor = Color.White;
             iconMenuItem4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconMenuItem4.Name = "iconMenuItem4";
-            iconMenuItem4.Size = new Size(96, 24);
+            iconMenuItem4.Size = new Size(104, 27);
             iconMenuItem4.Text = "Reporte";
             // 
             // btnDetallesTraducIcon
@@ -151,44 +165,39 @@
             btnDetallesTraducIcon.IconColor = Color.Black;
             btnDetallesTraducIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDetallesTraducIcon.Name = "btnDetallesTraducIcon";
-            btnDetallesTraducIcon.Size = new Size(243, 26);
+            btnDetallesTraducIcon.Size = new Size(266, 28);
             btnDetallesTraducIcon.Text = "Detalles de Traduccion";
             btnDetallesTraducIcon.Click += btnDetallesTraducIcon_Click;
             // 
             // btnTraduccionIcon
             // 
-            btnTraduccionIcon.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnTraduccionIcon.IconColor = Color.Black;
+            btnTraduccionIcon.Font = new Font("Segoe UI", 10F);
+            btnTraduccionIcon.ForeColor = SystemColors.ButtonFace;
+            btnTraduccionIcon.IconChar = FontAwesome.Sharp.IconChar.PaperPlane;
+            btnTraduccionIcon.IconColor = Color.White;
             btnTraduccionIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnTraduccionIcon.Name = "btnTraduccionIcon";
-            btnTraduccionIcon.Size = new Size(115, 24);
+            btnTraduccionIcon.Size = new Size(127, 27);
             btnTraduccionIcon.Text = "Traduccion";
             btnTraduccionIcon.Click += btnTraduccionIcon_Click;
             // 
             // IconBtnEmpleados
             // 
+            IconBtnEmpleados.Font = new Font("Segoe UI", 10F);
+            IconBtnEmpleados.ForeColor = SystemColors.ButtonFace;
             IconBtnEmpleados.IconChar = FontAwesome.Sharp.IconChar.PeoplePulling;
-            IconBtnEmpleados.IconColor = Color.Black;
+            IconBtnEmpleados.IconColor = Color.White;
             IconBtnEmpleados.IconFont = FontAwesome.Sharp.IconFont.Auto;
             IconBtnEmpleados.Name = "IconBtnEmpleados";
-            IconBtnEmpleados.Size = new Size(117, 24);
+            IconBtnEmpleados.Size = new Size(127, 27);
             IconBtnEmpleados.Text = "Empleados";
             IconBtnEmpleados.Click += IconBtnEmpleados_Click;
-            // 
-            // iconMenuHistorialD
-            // 
-            iconMenuHistorialD.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconMenuHistorialD.IconColor = Color.Black;
-            iconMenuHistorialD.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuHistorialD.Name = "iconMenuHistorialD";
-            iconMenuHistorialD.Size = new Size(251, 26);
-            iconMenuHistorialD.Text = "Historial de Donaciones";
-            iconMenuHistorialD.Click += iconMenuHistorialD_Click;
             // 
             // MenuInicialView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(863, 496);
             Controls.Add(menuStrip1);
             Name = "MenuInicialView";
@@ -208,7 +217,6 @@
         private FontAwesome.Sharp.IconMenuItem btnMenuIcon;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
         private FontAwesome.Sharp.IconMenuItem btnDonaciones;
-        private FontAwesome.Sharp.IconMenuItem btnListaIcon;
         private FontAwesome.Sharp.IconMenuItem btnAgregarEditarIcon;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
         private FontAwesome.Sharp.IconMenuItem btnDetallesTraducIcon;

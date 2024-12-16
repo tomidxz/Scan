@@ -37,6 +37,7 @@
             ClientSize = new Size(800, 450);
             Name = "TraduccionReportView";
             Text = "TraduccionReportView";
+            WindowState = FormWindowState.Maximized;
             Load += TraduccionReportView_Load;
             ResumeLayout(false);
         }
