@@ -96,7 +96,7 @@ namespace ScanDesktop.Views
                 donacionesImprimir = donaciones.Where(donacion => donacion.Fecha >= dateTimeDesde.Value && donacion.Fecha <= dateTimeHasta.Value).ToList();
                 TituloReporte = $"Donaciones del {dateTimeDesde.Value.ToString("dd/MM/yyyy")} al {dateTimeHasta.Value.ToString("dd/MM/yyyy")}";
             }
-             var HistorialDonacionesReport = new HistorialDonacionesReportView(donaciones,TituloReporte);
+             var HistorialDonacionesReport = new HistorialDonacionesReportView(donacionesImprimir, TituloReporte);
              HistorialDonacionesReport.ShowDialog();
 
         }
