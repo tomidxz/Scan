@@ -23,6 +23,7 @@ namespace ScanDesktop.Views
         public DonadorView()
         {
             InitializeComponent();
+            dataGridDonadores.DataSource = listaDonadores;
             CargarDatosAGrilla();
             FiltrarDonadores();
         }
@@ -30,7 +31,6 @@ namespace ScanDesktop.Views
         private async Task CargarDatosAGrilla()
         {
             listaDonadores.DataSource = await donadorService.GetAllAsync();
-            dataGridDonadores.DataSource = await donadorService.GetAllAsync();
             donadoresFiltrar = (List<Donador>)listaDonadores.DataSource;
         }
 
@@ -41,16 +41,13 @@ namespace ScanDesktop.Views
 
         private void iconEditarDonador_Click(object sender, EventArgs e)
         {
-            // Verifica si hay una fila seleccionada en el DataGridView
-            if (dataGridDonadores.SelectedRows.Count == 0)
+            donadorCurrent = (Donador)listaDonadores.Current;
+
+            if (donadorCurrent == null)
             {
                 MessageBox.Show("Debe seleccionar un donador para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Obtén el donador seleccionado desde la fila seleccionada
-            var selectedRow = dataGridDonadores.SelectedRows[0];
-            donadorCurrent = (Donador)selectedRow.DataBoundItem;
 
             // Llena los controles con la información del donador
             txtNombreDonador.Text = donadorCurrent.Nombre;
@@ -65,34 +62,31 @@ namespace ScanDesktop.Views
 
         private async void iconEliminarDonador_Click(object sender, EventArgs e)
         {
-            // Verifica si hay una fila seleccionada en el DataGridView
-            if (dataGridDonadores.SelectedRows.Count == 0)
+            donadorCurrent = (Donador)listaDonadores.Current;
+
+            if (donadorCurrent == null)
             {
                 MessageBox.Show("Debe seleccionar un donador para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Obtén el empleado seleccionado desde la fila seleccionada
-            var selectedRow = dataGridDonadores.SelectedRows[0];
-            var donadorSeleccionado = (Donador)selectedRow.DataBoundItem;
-
             // Confirmación del usuario
-            var result = MessageBox.Show("¿Está seguro que desea eliminar al Donador?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show($"¿Está seguro que desea eliminar al donador {donadorCurrent.Nombre}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
                     // Llama al servicio para eliminar al empleado
-                    await donadorService.DeleteAsync(donadorSeleccionado.Id);
+                    await donadorService.DeleteAsync(donadorCurrent.Id);
+
+                    MessageBox.Show("Donador eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Recarga la grilla
                     await CargarDatosAGrilla();
-
-                    MessageBox.Show("Donador eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al eliminar el empleado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error al eliminar el donador: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -261,6 +261,7 @@ public partial class ScanContext : DbContext
         modelBuilder.Entity<DetallesTraduccion>().HasQueryFilter(m => !m.Eliminado);
         modelBuilder.Entity<Manwha>().HasQueryFilter(m => !m.Eliminado);
         modelBuilder.Entity<Donacion>().HasQueryFilter(m => !m.Eliminado);
+        modelBuilder.Entity<Donador>().HasQueryFilter(m => !m.Eliminado);
         #endregion
     }
    
